@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -178,14 +178,14 @@ $VERSION = '0.10';
         PerlV     => [ 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-    xray => {
-        location  => 'http://www.xray.mpe.mpg.de/~ach/ptk/ppm',
-        Type      => '??',
-        Active    => 0,
-        Notes     => 'long gone',
-        PerlV     => [ 5.6 ],
-        PerlO     => [],
-    },
+#    xray => {
+#        location  => 'http://www.xray.mpe.mpg.de/~ach/ptk/ppm',
+#        Type      => '??',
+#        Active    => 0,
+#        Notes     => 'long gone',
+#        PerlV     => [ 5.6 ],
+#        PerlO     => [],
+#    },
     openi => {
         location  => 'http://openinteract.sourceforge.net/ppmpackages',
         Type      => 'Webpage',
@@ -212,14 +212,14 @@ $VERSION = '0.10';
         PerlV     => [ 5.5, 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-    perlxml => {
-        location  => 'http://www.perlxml.net/PPM',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Get your libxml-perl here. Please note that this is known to disappear for a few days and come back.',
-        PerlV     => [ 5.6, 5.8 ],
-        PerlO     => ['MSWin32'],
-    },
+#    perlxml => { # http://rt.cpan.org/NoAuth/Bug.html?id=12761
+#        location  => 'http://www.perlxml.net/PPM',
+#        Type      => 'Webpage',
+#        Active    => 0,
+#        Notes     => 'Get your libxml-perl here. Please note that this is known to disappear for a few days and come back.',
+#        PerlV     => [ 5.6, 5.8 ],
+#        PerlO     => ['MSWin32'],
+#    },
     datetime => {
         location  => 'http://datetime.perl.org/download',
         Type      => 'Webpage',

@@ -1,4 +1,7 @@
 Revision history for Perl extension PPM::Repositories
+0.11  Thu May 12 04:46:47 2005
+    - removed some repositories that are gone for good
+      ( http://rt.cpan.org/NoAuth/Bug.html?id=12761 )
 
 0.10  Thu May 20 15:30:59 2004
     - updated synopsis
