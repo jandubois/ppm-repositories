@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -266,6 +266,21 @@ See L<PPM|PPM> for help with ppm.
 =head2 EXPORT
 
 C<%Repositories> is exported by default.
+
+
+=head2 If you wanna run your own repository
+
+Simply read my repository README
+E<lt>http://crazyinsomniac.perlmonk.org/perl/ppm/README.htmlE<gt>
+or these tutorials:
+
+    113448 ! perltutorial ! HowTo build and distribute a PPMed module for Win32
+        http://perlmonks.org/index.pl?node_id=113448
+        http://perlmonks.thepen.com/113448.html
+
+    How2 - create a PPM distribution 
+        http://jenda.krynicky.cz/perl/PPM.html
+
 
 =head1 BUGS/ADDITIONS
 

@@ -1,5 +1,9 @@
 Revision history for Perl extension PPM::Repositories
 
+0.07  Wed Nov  5 20:02:09 2003
+    - I realized the 0.05 Changes never happened (D'oh)
+    - really added pod pointing to guide(s) on setting up a repository
+
 0.06  Wed Nov  5 19:46:05 2003
     - added esoft
     - added log4perl "repository"
