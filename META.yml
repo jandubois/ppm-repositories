@@ -1,0 +1,10 @@
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         PPM-Repositories
+version:      0.02
+version_from: Repositories.pm
+installdirs:  site
+requires:
+    Exporter:                      
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.10_04

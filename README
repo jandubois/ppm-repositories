@@ -1,0 +1,82 @@
+PPM/Repositories version 0.02
+=============================
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+SYNOPSIS
+        use PPM::Repositories;
+                                                        #
+        # Print out all *Active* repositories for perl 5.8.x
+                                                        #
+        for my $rep ( keys %Repositories ) {
+            next unless $Repositories{$rep}->{Active};
+            next unless grep { $_ == 5.8 } @{ $Repositories{$rep}->{PerlV} };
+            print $rep,$/,
+                $Repositories{$rep}->{location},$/,
+                $Repositories{$rep}->{Notes},$/,
+                $/;
+    # uncomment the following lines to automatically add them to your config
+    #        use PPM;
+    #        PPM::AddRepository(
+    #            "repository" => $rep,
+    #            "location"   => $Repositories{$rep}->{location},
+    #            "save" => 'yes');
+        }
+
+DESCRIPTION
+    This is a list of all known ppm repositores (barring the activestate
+    ones). Currently, most of them are Win32 specific, mainly because the
+    *nix folks have CPAN/CPANPLUS as well as free compilers.
+
+    An example entry in %Repositories looks like:
+
+        datetime => {
+            location  => 'http://datetime.perl.org/download/',
+            Type      => 'Webpage',
+            Active    => 1,
+            Notes     => 'Get your DateTime modules here',
+            PerlV     => [ 5.6, 5.8 ],
+            PerlO     => ['MSWin32'],
+        },
+
+    The meaning of the key/value pairs should be obvious.
+
+    Active is either 1, or 0, and it indicated whether or not that
+    particular repository existed (you could reach it via the internet), and
+    contained ppm packages, when this module was created.
+
+    PerlO is the value of $^O.
+
+        $^O values for various operating systems:
+            http://alma.ch/perl/perloses.htm
+            http://crazyinsomniac.perlmonk.org/perl/misc/perloses.htm
+
+    See the SYNOPSIS for example usage. See PPM for help with ppm.
+
+  EXPORT
+    %Repositories is exported by default.
+
+BUGS/ADDITIONS
+    Please use https://rt.cpan.org/NoAuth/Bugs.html?Dist=PPM-Repositories to
+    report *bugs*/additions.
+
+AUTHOR
+    D. H. aka PodMaster
+
+LICENSE
+    Copyright (c) 2003 by D.H. aka PodMaster. All rights reserved.
+
+    This module is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself. If you don't know what this means,
+    visit http://perl.com/ or http://cpan.org/.
+
+SEE ALSO
+    PPM, PPM::Make, CPANPLUS, CPAN.
+

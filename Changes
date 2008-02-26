@@ -1,0 +1,9 @@
+Revision history for Perl extension PPM::Repositories.
+
+0.02  Tue May 27 05:12:34 2003
+    - finished writing pod, first upload to cpan
+
+0.01  Fri Apr  4 03:21:25 2003
+	- original version; created by h2xs 1.21 with options
+		-AX PPM::Repositories
+
