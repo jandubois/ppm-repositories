@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -228,6 +228,14 @@ $VERSION = '0.09';
         PerlV     => [ 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
+    gtk => {
+        location  => 'http://gtk2-perl.sourceforge.net/win32/ppm',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'Get your Gtk2 modules here',
+        PerlV     => [ 5.8 ],
+        PerlO     => ['MSWin32'],
+    },
 );
 
 
@@ -252,12 +260,19 @@ PPM::Repositories - a list of all I<known> ppm package repositories
             $Repositories{$rep}->{location},$/,
             $Repositories{$rep}->{Notes},$/,
             $/;
-# uncomment the following lines to automatically add them to your config
+# uncomment the following lines to automatically add them to your config if you got PPM 2.x
 #        use PPM;
 #        PPM::AddRepository(
 #            "repository" => $rep,
 #            "location"   => $Repositories{$rep}->{location},
 #            "save" => 'yes');
+#
+# uncomment the following lines to automatically add them to your config if you got PPM 3.x
+#        use PPM::UI;
+#        my $user = '';
+#        my $pass = '';
+#        my $ok = PPM::UI::repository_add($rep, $Repositories{$rep}->{location}, $user, $pass);
+
     }
 
 =head1 DESCRIPTION
@@ -327,7 +342,7 @@ D. H. (PodMaster)
 
 =head1 LICENSE
 
-Copyright (c) 2003 by D.H. (PodMaster). All rights reserved.
+Copyright (c) 2003,2004,2005 by D.H. (PodMaster). All rights reserved.
 
 This module is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. If you don't know what this means,

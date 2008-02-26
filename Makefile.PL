@@ -12,6 +12,7 @@ WriteMakefile(
 
 __END__
 perl Makefile.PL && nmake realclean && cls && perl Makefile.PL && nmake disttest
-nmake dist TAR=ptar
-chmod 7777 *.gz
+nmake dist TAR=ptar TARFLAGS="-z -c -v -f" COMPRESS=echo
+perl -e"my $f=glob q,*.tar,;warn rename $f, qq,$f.gz,"
+perl -e"chmod 0777, glob q(*.gz)"
 perl -le" `cpan-upload $_` for( (sort glob q,*.gz,)[-1]) "

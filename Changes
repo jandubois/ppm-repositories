@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.10  Thu May 20 15:30:59 2004
+    - updated synopsis
+
 0.09  Sat Mar 13 19:08:08 2004
     - some PerlO values were wrong (no biggie)
 
