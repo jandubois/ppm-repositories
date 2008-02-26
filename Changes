@@ -1,4 +1,13 @@
-Revision history for Perl extension PPM::Repositories.
+Revision history for Perl extension PPM::Repositories
+
+0.06  Wed Nov  5 19:46:05 2003
+    - added esoft
+    - added log4perl "repository"
+    - updated pod
+
+0.05 
+    - added jmcnamara repository (he finally made it a repository)
+    - added pod pointing to guide(s) on setting up a repository
 
 0.04  Mon Jun  2 17:28:31 2003
     - marked savage repository active (he finally fixed it)

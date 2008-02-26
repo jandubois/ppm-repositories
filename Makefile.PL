@@ -1,3 +1,6 @@
+# perl Makefile.PL && nmake realclean && cls && perl Makefile.PL && nmake test
+# cpan-upload -mailto yo@yo.yo -verbose -user podmaster PPM-Repositories-0.06.tar.gz
+
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.

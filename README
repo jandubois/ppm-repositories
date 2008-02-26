@@ -1,4 +1,4 @@
-PPM/Repositories version 0.04
+PPM/Repositories
 =============================
 
 INSTALLATION
@@ -9,6 +9,9 @@ To install this module type the following:
    make
    make test
    make install
+
+NAME
+    PPM::Repositories - a list of all *known* ppm package repositories
 
 SYNOPSIS
         use PPM::Repositories;
@@ -52,7 +55,8 @@ DESCRIPTION
     particular repository existed (you could reach it via the internet), and
     contained ppm packages, when this module was released.
 
-    PerlO is the value of $^O.
+    PerlO is the value of $^O. The value 'perl' is used to indicate
+    pure-perl (meaning all OS').
 
         $^O values for various operating systems:
             http://alma.ch/perl/perloses.htm

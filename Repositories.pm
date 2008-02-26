@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.04';
+$VERSION = '0.06';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -33,6 +33,22 @@ $VERSION = '0.04';
 =cut
 
 %Repositories = (
+    log4perl => {
+        location => 'http://log4perl.sourceforge.net/ppm',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'log4perl (pure perl)',
+        PerlV     => [ ],
+        PerlO     => ['perl'],
+    },
+    esoft  => {
+        location  => 'ftp://ftp.esoftmatic.com/outgoing/DBI',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'DBI, DBD-Oracle, DBD-ODBC for 5.8',
+        PerlV     => [ 5.8 ],
+        PerlO     => ['MSWin32'],
+    },
     savage => {
         location  => 'http://savage.net.au/Perl-modules/ppm',
         Type      => 'Webpage',
@@ -151,8 +167,8 @@ $VERSION = '0.04';
         location  => 'http://www.roth.net/perl/packages',
         Type      => 'Webpage',
         Active    => 1,
-        Notes     => 'More Win32:: stuff (roth busy, no updates)',
-        PerlV     => [ 5.5, 5.6],
+        Notes     => 'More Win32:: stuff',
+        PerlV     => [ 5.5, 5.6, 5.8],
         PerlO     => ['MSWin32'],
     },
 
@@ -186,6 +202,7 @@ $VERSION = '0.04';
 
 1;
 __END__
+
 =head1 NAME
 
 PPM::Repositories - a list of all I<known> ppm package repositories
@@ -236,6 +253,7 @@ that particular repository existed (you could reach it via the internet),
 and contained ppm packages, when this module was released.
 
 PerlO is the value of $^O.
+The value 'perl' is used to indicate pure-perl (meaning all OS').
 
     $^O values for various operating systems:
         http://alma.ch/perl/perloses.htm
