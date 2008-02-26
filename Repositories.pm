@@ -33,14 +33,6 @@ $VERSION = '0.11';
 =cut
 
 %Repositories = (
-    smueller => {
-        location => 'http://steffen-mueller.net/modules/repository/',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Steffen Mueller puts his modules in a repository :)',
-        PerlV     => [ 5.6 ],
-        PerlO     => ['MSWin32'],
-    },
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
         Type      => 'Webpage',
