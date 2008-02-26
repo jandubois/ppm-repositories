@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.08  Sat Mar 13 17:46:29 2004
+    - added smueller, bribes and soulcage/soulcage58 ("bugs" 5367, 5644, 5477 on rt)
+
 0.07  Wed Nov  5 20:02:09 2003
     - I realized the 0.05 Changes never happened (D'oh)
     - really added pod pointing to guide(s) on setting up a repository

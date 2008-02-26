@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -33,6 +33,38 @@ $VERSION = '0.07';
 =cut
 
 %Repositories = (
+    smueller => {
+        location => 'http://steffen-mueller.net/modules/repository/',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'Steffen Mueller puts his modules in a repository :)',
+        PerlV     => [ 5.6 ],
+        PerlO     => ['perl'],
+    },
+    bribes => {
+        location => 'http://www.bribes.org/perl/ppm/',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'Digest::*, Net::Pcap, Win32::* ...',
+        PerlV     => [ 5.6, 5.8 ],
+        PerlO     => ['perl'],
+    },
+    soulcage => {
+        location => 'http://www.soulcage.net/ppds/',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
+        PerlV     => [ 5.6 ],
+        PerlO     => ['perl'],
+    },
+    soulcage58 => {
+        location => 'http://www.soulcage.net/ppds.58/',
+        Type      => 'Webpage',
+        Active    => 1,
+        Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
+        PerlV     => [ 5.8 ],
+        PerlO     => ['perl'],
+    },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
         Type      => 'Webpage',
@@ -282,20 +314,20 @@ or these tutorials:
         http://jenda.krynicky.cz/perl/PPM.html
 
 
-=head1 BUGS/ADDITIONS
+=head1 BUGS/ADDITIONS/ETC
 
 Please use
 https://rt.cpan.org/NoAuth/Bugs.html?Dist=PPM-Repositories
-to report I<bugs>/additions
-or send mail to <bug-PPM-Repositories@rt.cpan.org>.
+to report I<bugs>/additions/etc
+or send mail to <bug-PPM-Repositories#rt.cpan.org>.
 
 =head1 AUTHOR
 
-D. H. aka PodMaster
+D. H. (PodMaster)
 
 =head1 LICENSE
 
-Copyright (c) 2003 by D.H. aka PodMaster. All rights reserved.
+Copyright (c) 2003 by D.H. (PodMaster). All rights reserved.
 
 This module is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. If you don't know what this means,

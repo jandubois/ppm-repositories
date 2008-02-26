@@ -1,6 +1,3 @@
-# perl Makefile.PL && nmake realclean && cls && perl Makefile.PL && nmake test
-# cpan-upload -mailto yo@yo.yo -verbose -user podmaster PPM-Repositories-0.07.tar.gz
-
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
@@ -12,3 +9,9 @@ WriteMakefile(
       (ABSTRACT_FROM => 'Repositories.pm', # retrieve abstract from module
       ) : ()),
 );
+
+__END__
+perl Makefile.PL && nmake realclean && cls && perl Makefile.PL && nmake disttest
+nmake dist TAR=ptar
+chmod 7777 *.gz
+perl -le" `cpan-upload $_` for( (sort glob q,*.gz,)[-1]) "
