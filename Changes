@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories.
 
+0.04  Mon Jun  2 17:28:31 2003
+    - marked savage repository active (he finally fixed it)
+
 0.03  Fri May 30 14:43:28 2003
     - added savage repository for 5.8 (which should be active soon),
       fixed up some urls (trailing slash is known to mess up some versions of ppm)

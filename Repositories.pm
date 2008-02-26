@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -36,7 +36,7 @@ $VERSION = '0.03';
     savage => {
         location  => 'http://savage.net.au/Perl-modules/ppm',
         Type      => 'Webpage',
-        Active    => 0,
+        Active    => 1,
         Notes     => 'CGI::Explorer, DBIx::*, etc',
         PerlV     => [ 5.8 ],
         PerlO     => ['MSWin32'],
@@ -253,7 +253,8 @@ C<%Repositories> is exported by default.
 
 Please use
 https://rt.cpan.org/NoAuth/Bugs.html?Dist=PPM-Repositories
-to report I<bugs>/additions.
+to report I<bugs>/additions
+or send mail to <bug-PPM-Repositories@rt.cpan.org>.
 
 =head1 AUTHOR
 

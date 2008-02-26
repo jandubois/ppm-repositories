@@ -1,4 +1,4 @@
-PPM/Repositories version 0.03
+PPM/Repositories version 0.04
 =============================
 
 INSTALLATION
@@ -48,9 +48,9 @@ DESCRIPTION
 
     The meaning of the key/value pairs should be obvious.
 
-    Active is either 1, or 0, and it indicated whether or not that
+    Active is either 1, or 0, and it indicates whether or not that
     particular repository existed (you could reach it via the internet), and
-    contained ppm packages, when this module was created.
+    contained ppm packages, when this module was released.
 
     PerlO is the value of $^O.
 
@@ -65,7 +65,8 @@ DESCRIPTION
 
 BUGS/ADDITIONS
     Please use https://rt.cpan.org/NoAuth/Bugs.html?Dist=PPM-Repositories to
-    report *bugs*/additions.
+    report *bugs*/additions or send mail to
+    <bug-PPM-Repositories@rt.cpan.org>.
 
 AUTHOR
     D. H. aka PodMaster
