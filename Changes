@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.09  Sat Mar 13 19:08:08 2004
+    - some PerlO values were wrong (no biggie)
+
 0.08  Sat Mar 13 17:46:29 2004
     - added smueller, bribes and soulcage/soulcage58 ("bugs" 5367, 5644, 5477 on rt)
 

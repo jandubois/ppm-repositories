@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -39,7 +39,7 @@ $VERSION = '0.08';
         Active    => 1,
         Notes     => 'Steffen Mueller puts his modules in a repository :)',
         PerlV     => [ 5.6 ],
-        PerlO     => ['perl'],
+        PerlO     => ['MSWin32'],
     },
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
@@ -47,7 +47,7 @@ $VERSION = '0.08';
         Active    => 1,
         Notes     => 'Digest::*, Net::Pcap, Win32::* ...',
         PerlV     => [ 5.6, 5.8 ],
-        PerlO     => ['perl'],
+        PerlO     => ['MSWin32'],
     },
     soulcage => {
         location => 'http://www.soulcage.net/ppds/',
@@ -55,7 +55,7 @@ $VERSION = '0.08';
         Active    => 1,
         Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
         PerlV     => [ 5.6 ],
-        PerlO     => ['perl'],
+        PerlO     => ['MSWin32'],
     },
     soulcage58 => {
         location => 'http://www.soulcage.net/ppds.58/',
@@ -63,7 +63,7 @@ $VERSION = '0.08';
         Active    => 1,
         Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
         PerlV     => [ 5.8 ],
-        PerlO     => ['perl'],
+        PerlO     => ['MSWin32'],
     },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
