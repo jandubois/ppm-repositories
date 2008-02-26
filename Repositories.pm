@@ -10,7 +10,7 @@ use vars qw[ @ISA $VERSION @EXPORT ];
 	%Repositories
 );
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 =for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
     ASPR => {
@@ -33,7 +33,14 @@ $VERSION = '0.02';
 =cut
 
 %Repositories = (
-
+    savage => {
+        location  => 'http://savage.net.au/Perl-modules/ppm',
+        Type      => 'Webpage',
+        Active    => 0,
+        Notes     => 'CGI::Explorer, DBIx::*, etc',
+        PerlV     => [ 5.8 ],
+        PerlO     => ['MSWin32'],
+    },
     spurkis => {
         location  => 'http://www.epn.ml.org/~spurkis/Agent/repository',
         Type      => '??',
@@ -43,7 +50,7 @@ $VERSION = '0.02';
         PerlO     => [],
     },
     crazy => {
-        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm/',
+        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Maintainer takes requests',
@@ -52,7 +59,7 @@ $VERSION = '0.02';
     },
     crazy58 => {
         Name      => 'crazy',
-        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm/5.8/',
+        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm/5.8',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Maintainer takes requests',
@@ -68,7 +75,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     theoryS => {
-        location  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
+        location  => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your mod_perl(s) here(SLOWER)',
@@ -84,7 +91,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     theory58S => {
-        location  => 'http://theoryx5.uwinnipeg.ca/ppms/',
+        location  => 'http://theoryx5.uwinnipeg.ca/ppms',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your mod_perl(s) here(SLOWER)',
@@ -92,7 +99,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     devhelp => {
-        location  => 'http://ppd.develop-help.com/ppd/',
+        location  => 'http://ppd.develop-help.com/ppd',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your Apache::Session here',
@@ -108,7 +115,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     rto => {
-        location  => 'http://rto.dk/packages/',
+        location  => 'http://rto.dk/packages',
         Type      => 'Webpage',
         Active    => 0,
         Notes     => 'GONE (forget what was there)',
@@ -124,7 +131,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     xray => {
-        location  => 'http://www.xray.mpe.mpg.de/~ach/ptk/ppm/',
+        location  => 'http://www.xray.mpe.mpg.de/~ach/ptk/ppm',
         Type      => '??',
         Active    => 0,
         Notes     => 'long gone',
@@ -132,7 +139,7 @@ $VERSION = '0.02';
         PerlO     => [],
     },
     openi => {
-        location  => 'http://openinteract.sourceforge.net/ppmpackages/',
+        location  => 'http://openinteract.sourceforge.net/ppmpackages',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Template Toolkit!!!',
@@ -141,7 +148,7 @@ $VERSION = '0.02';
     },
     
     roth => {
-        location  => 'http://www.roth.net/perl/packages/',
+        location  => 'http://www.roth.net/perl/packages',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'More Win32:: stuff (roth busy, no updates)',
@@ -158,7 +165,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     perlxml => {
-        location  => 'http://www.perlxml.net/PPM/',
+        location  => 'http://www.perlxml.net/PPM',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your libxml-perl here. Please note that this is known to disappear for a few days and come back.',
@@ -166,7 +173,7 @@ $VERSION = '0.02';
         PerlO     => ['MSWin32'],
     },
     datetime => {
-        location  => 'http://datetime.perl.org/download/',
+        location  => 'http://datetime.perl.org/download',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your DateTime modules here',
@@ -214,7 +221,7 @@ as well as free compilers.
 An example entry in C<%Repositories> looks like:
 
     datetime => {
-        location  => 'http://datetime.perl.org/download/',
+        location  => 'http://datetime.perl.org/download',
         Type      => 'Webpage',
         Active    => 1,
         Notes     => 'Get your DateTime modules here',
@@ -224,9 +231,9 @@ An example entry in C<%Repositories> looks like:
 
 The meaning of the key/value pairs should be obvious.
 
-Active is either 1, or 0, and it indicated whether or not
+Active is either 1, or 0, and it indicates whether or not
 that particular repository existed (you could reach it via the internet),
-and contained ppm packages, when this module was created.
+and contained ppm packages, when this module was released.
 
 PerlO is the value of $^O.
 

@@ -1,4 +1,4 @@
-PPM/Repositories version 0.02
+PPM/Repositories version 0.03
 =============================
 
 INSTALLATION
@@ -38,7 +38,7 @@ DESCRIPTION
     An example entry in %Repositories looks like:
 
         datetime => {
-            location  => 'http://datetime.perl.org/download/',
+            location  => 'http://datetime.perl.org/download',
             Type      => 'Webpage',
             Active    => 1,
             Notes     => 'Get your DateTime modules here',
