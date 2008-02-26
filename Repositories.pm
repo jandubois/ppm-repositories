@@ -212,14 +212,6 @@ $VERSION = '0.11';
 #        PerlV     => [ 5.6, 5.8 ],
 #        PerlO     => ['MSWin32'],
 #    },
-    datetime => {
-        location  => 'http://datetime.perl.org/download',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Get your DateTime modules here',
-        PerlV     => [ 5.6, 5.8 ],
-        PerlO     => ['MSWin32'],
-    },
     gtk => {
         location  => 'http://gtk2-perl.sourceforge.net/win32/ppm',
         Type      => 'Webpage',
