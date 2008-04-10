@@ -7,6 +7,7 @@ require Exporter;
 
 our @ISA = qw( Exporter );
 our @EXPORT = qw(%Repositories);
+our @EXPORT_OK = qw(%Repo list);
 our $VERSION = '0.11';
 
 our %Repositories = (
@@ -108,6 +109,84 @@ our %Repositories = (
     },
 );
 
+our %Repo = (
+    activestate => {
+	www => 'http://ppm.activestate.com/',
+	arch => {
+	    # filled in below
+	},
+    },
+    bribes => {
+	www => 'http://www.bribes.org/perl/ppmdir.html',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.6'  => 'http://www.bribes.org/perl/ppm',
+		'5.8'  => 'http://www.bribes.org/perl/ppm',
+		'5.10' => 'http://www.bribes.org/perl/ppm',
+	    },
+	},
+    },
+    tcool => {
+	www => 'http://ppm.tcool.org/intro/register',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.8'  => 'http://ppm.tcool.org/archives/',
+	    },
+	},
+    },
+    trouchelle => {
+	www => 'http://trouchelle.com/perl/ppmrepview.pl',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.8'  => 'http://trouchelle.com/ppm/',
+		'5.10' => 'http://trouchelle.com/ppm10/',
+	    },
+	},
+    },
+    uwinnipeg => {
+	www => 'http://cpan.uwinnipeg.ca/',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
+		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
+		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
+	    },
+	},
+    },
+);
+
+# Add URLs for all ActiveState repos
+for my $arch (qw(MSWin32-x86 MSWin32-x64 i686-linux sun4-solaris darwin
+		 PA-RISC1.1 PA-RISC2.0-LP64 IA64.ARCHREV_0 IA64.ARCHREV_0-LP64))
+{
+    $Repo{activestate}{arch}{$arch}{'5.8'}  = "http://ppm4.activestate.com/$arch/5.8/800/";
+    next if $arch =~ /^(PA-RISC|IA64)/;
+    $Repo{activestate}{arch}{$arch}{'5.10'} = "http://ppm4.activestate.com/$arch/5.10/1000/";
+}
+
+sub list {
+    my($version,$arch) = @_;
+    unless ($version) {
+	require Config;
+	$version = "$Config::Config{PERL_REVISION}.$Config::Config{PERL_VERSION}";
+    }
+    unless ($arch) {
+	require Config;
+	$arch = $Config::Config{archname};
+    }
+    1 while $arch =~ s/-(thread|multi|2level)//;
+
+    my %list;
+    foreach my $name (keys %Repo) {
+	my %repo = %{$Repo{$name}};
+	$repo{url} = $repo{arch}->{$arch}->{$version} || $repo{arch}->{perl};
+	next unless $repo{url};
+	delete $repo{arch};
+	$list{$name} = \%repo;
+    }
+    return (%list);
+}
+
 1;
 
 __END__
@@ -126,6 +205,18 @@ PPM::Repositories - a list of all I<known> ppm package repositories
         print "$rep\n";
         print "  $Repositories{$rep}->{location}\n";
         print "  $Repositories{$rep}->{Notes}\n\n";
+    }
+
+
+    # Print all repositories for the current architecture using the new API
+    use PPM::Repositories;
+    for my $version (qw(5.6 5.8 5.10)) {
+        print "Perl $version\n";
+        my %repo = PPM::Repositories::list($version);
+        for my $name (sort keys %repo) {
+            printf "  %-12s %s\n", $name, $repo{$name}{url};
+        }
+        print "\n";
     }
 
 =head1 DESCRIPTION
