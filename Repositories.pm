@@ -19,6 +19,32 @@ our %Repositories = (
         PerlV    => [ 5.6, 5.8 ],
         PerlO    => ['MSWin32'],
     },
+    devhelp => {
+        location => 'http://ppd.develop-help.com/ppd',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Get your Apache::Session here',
+	# this repository contains a mix of 5.6 and 5.8 packages, but
+	# each individual module is for only one of the 2 versions. :(
+        PerlV    => [ 5.6, 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    gtk => {
+        location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Get your Gtk2 modules here',
+        PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    jenda => {
+        location => 'http://jenda.krynicky.cz/perl',
+        Type     => 'Webpage or PPMServer?',
+        Active   => 0,
+        Notes    => 'AWSOME (tons of Win32 related stuff by him)',
+        PerlV    => [ 5.6, 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
         Type     => 'Webpage',
@@ -26,6 +52,31 @@ our %Repositories = (
         Notes    => 'log4perl (pure perl)',
         PerlV    => [ ],
         PerlO    => ['perl'],
+    },
+    openi => {
+	# stale; last update in Feb 2004
+        location => 'http://openinteract.sourceforge.net/ppmpackages/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Template Toolkit',
+        PerlV    => [ 5.6, 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    roth => {
+        location => 'http://www.roth.net/perl/packages/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'More Win32:: stuff',
+        PerlV    => [ 5.6, 5.8],
+        PerlO    => ['MSWin32'],
+    },
+    sablot => {
+        location => 'http://ppm.gingerall.cz',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Get your XML::Sablotron here',
+        PerlV    => [ 5.6, 5.8 ],
+        PerlO    => ['MSWin32'],
     },
     theory => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
@@ -59,54 +110,6 @@ our %Repositories = (
         PerlV    => [ 5.8 ],
         PerlO    => ['MSWin32'],
     },
-    devhelp => {
-        location => 'http://ppd.develop-help.com/ppd',
-        Type     => 'Webpage',
-        Active   => 1,
-        Notes    => 'Get your Apache::Session here',
-        PerlV    => [ 5.6 ],
-        PerlO    => ['MSWin32'],
-    },
-    jenda => {
-        location => 'http://jenda.krynicky.cz/perl',
-        Type     => 'Webpage or PPMServer?',
-        Active   => 0,
-        Notes    => 'AWSOME (tons of Win32 related stuff by him)',
-        PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
-    },
-    openi => {
-        location => 'http://openinteract.sourceforge.net/ppmpackages',
-        Type     => 'Webpage',
-        Active   => 1,
-        Notes    => 'Template Toolkit!!!',
-        PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
-    },
-    roth => {
-        location => 'http://www.roth.net/perl/packages',
-        Type     => 'Webpage',
-        Active   => 1,
-        Notes    => 'More Win32:: stuff',
-        PerlV    => [ 5.6, 5.8],
-        PerlO    => ['MSWin32'],
-    },
-    sablot => {
-        location => 'http://ppm.gingerall.cz',
-        Type     => 'Webpage',
-        Active   => 1,
-        Notes    => 'Get your XML::Sablotron here',
-        PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
-    },
-    gtk => {
-        location => 'http://gtk2-perl.sourceforge.net/win32/ppm',
-        Type     => 'Webpage',
-        Active   => 1,
-        Notes    => 'Get your Gtk2 modules here',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
-    },
 );
 
 our %Repo = (
@@ -123,6 +126,30 @@ our %Repo = (
 		'5.6'  => 'http://www.bribes.org/perl/ppm',
 		'5.8'  => 'http://www.bribes.org/perl/ppm',
 		'5.10' => 'http://www.bribes.org/perl/ppm',
+	    },
+	},
+    },
+    log4perl => {
+	www => 'http://log4perl.sourceforge.net',
+	arch => {
+	    'perl' => 'http://log4perl.sourceforge.net/ppm',
+	},
+    },
+    roth => {
+	www => 'http://www.roth.net/perl/packages/',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.6' => 'http://www.roth.net/perl/packages/',
+		'5.8' => 'http://www.roth.net/perl/packages/',
+	    },
+	},
+    },
+    sablotron => {
+	www => 'http://ppm.gingerall.cz',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.6' => 'http://ppm.gingerall.cz',
+		'5.8' => 'http://ppm.gingerall.cz',
 	    },
 	},
     },
