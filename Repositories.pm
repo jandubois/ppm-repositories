@@ -4,33 +4,8 @@ require Exporter;
 
 use vars qw[ @ISA $VERSION @EXPORT ];
 @ISA = qw( Exporter );
-
-
-@EXPORT = qw(
-	%Repositories
-);
-
+@EXPORT = qw(%Repositories);
 $VERSION = '0.11';
-
-=for COMMENTING_OUT_CAUSE_THESE_YOU_SHOULD_ALREADY_HAVE
-    ASPR => {
-        location  => 'http://ppm-ia.ActiveState.com/PPM/ppmserver.plex?urn:/PPM/Server/SQL',
-        Type      => 'PPMServer 3.0',
-        Active    => 1,
-        Notes     => 'This one you should already have',
-        PerlV     => [],
-        PerlO     => [],
-    },
-    ASPPM2R => {
-        location  => 'http://ppm.ActiveState.com/cgibin/PPM/ppmserver.pl?urn:/PPMServer',
-        Type      => '',
-        Active    => 1,
-        Notes     => '',
-        PerlV     => [],
-        PerlO     => [],
-    },
-
-=cut
 
 %Repositories = (
     bribes => {
@@ -41,22 +16,6 @@ $VERSION = '0.11';
         PerlV     => [ 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-    soulcage => {
-        location => 'http://www.soulcage.net/ppds/',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
-        PerlV     => [ 5.6 ],
-        PerlO     => ['MSWin32'],
-    },
-    soulcage58 => {
-        location => 'http://www.soulcage.net/ppds.58/',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Soulcage.Net MSWin32 Perl archives (Net::SSH::Perl and Net::SSH::W32Perl ...).',
-        PerlV     => [ 5.8 ],
-        PerlO     => ['MSWin32'],
-    },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
         Type      => 'Webpage',
@@ -64,47 +23,6 @@ $VERSION = '0.11';
         Notes     => 'log4perl (pure perl)',
         PerlV     => [ ],
         PerlO     => ['perl'],
-    },
-    esoft  => {
-        location  => 'ftp://ftp.esoftmatic.com/outgoing/DBI',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'DBI, DBD-Oracle, DBD-ODBC for 5.8',
-        PerlV     => [ 5.8 ],
-        PerlO     => ['MSWin32'],
-    },
-    savage => {
-        location  => 'http://savage.net.au/Perl-modules/ppm',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'CGI::Explorer, DBIx::*, etc',
-        PerlV     => [ 5.8 ],
-        PerlO     => ['MSWin32'],
-    },
-    spurkis => {
-        location  => 'http://www.epn.ml.org/~spurkis/Agent/repository',
-        Type      => '??',
-        Active    => 0,
-        Notes     => 'GONE FOREVER',
-        PerlV     => [],
-        PerlO     => [],
-    },
-    crazy => {
-        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Maintainer takes requests',
-        PerlV     => [ 5.6 ],
-        PerlO     => ['MSWin32'],
-    },
-    crazy58 => {
-        Name      => 'crazy',
-        location  => 'http://crazyinsomniac.perlmonk.org/perl/ppm/5.8',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Maintainer takes requests',
-        PerlV     => [ 5.8 ],
-        PerlO     => ['MSWin32'],
     },
     theory => {
         location  => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
@@ -146,38 +64,14 @@ $VERSION = '0.11';
         PerlV     => [ 5.6 ],
         PerlO     => ['MSWin32'],
     },
-    dada => {
-        location  => 'http://dada.perl.it/PPM',
-        Type      => 'Webpage',
-        Active    => 1,
-        Notes     => 'Get your Win32::API here',
-        PerlV     => [ 5.5, 5.6 ],
-        PerlO     => ['MSWin32'],
-    },
-    rto => {
-        location  => 'http://rto.dk/packages',
-        Type      => 'Webpage',
-        Active    => 0,
-        Notes     => 'GONE (forget what was there)',
-        PerlV     => [ 5.6 ],
-        PerlO     => [],
-    },
     jenda => {
         location  => 'http://jenda.krynicky.cz/perl',
         Type      => 'Webpage or PPMServer?',
-        Active    => 1,
+        Active    => 0,
         Notes     => 'AWSOME (tons of Win32 related stuff by him)',
         PerlV     => [ 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-#    xray => {
-#        location  => 'http://www.xray.mpe.mpg.de/~ach/ptk/ppm',
-#        Type      => '??',
-#        Active    => 0,
-#        Notes     => 'long gone',
-#        PerlV     => [ 5.6 ],
-#        PerlO     => [],
-#    },
     openi => {
         location  => 'http://openinteract.sourceforge.net/ppmpackages',
         Type      => 'Webpage',
@@ -186,7 +80,6 @@ $VERSION = '0.11';
         PerlV     => [ 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-    
     roth => {
         location  => 'http://www.roth.net/perl/packages',
         Type      => 'Webpage',
@@ -204,14 +97,6 @@ $VERSION = '0.11';
         PerlV     => [ 5.5, 5.6, 5.8 ],
         PerlO     => ['MSWin32'],
     },
-#    perlxml => { # http://rt.cpan.org/NoAuth/Bug.html?id=12761
-#        location  => 'http://www.perlxml.net/PPM',
-#        Type      => 'Webpage',
-#        Active    => 0,
-#        Notes     => 'Get your libxml-perl here. Please note that this is known to disappear for a few days and come back.',
-#        PerlV     => [ 5.6, 5.8 ],
-#        PerlO     => ['MSWin32'],
-#    },
     gtk => {
         location  => 'http://gtk2-perl.sourceforge.net/win32/ppm',
         Type      => 'Webpage',
@@ -222,9 +107,8 @@ $VERSION = '0.11';
     },
 );
 
-
-
 1;
+
 __END__
 
 =head1 NAME
