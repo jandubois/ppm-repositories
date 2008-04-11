@@ -8,7 +8,7 @@ require Exporter;
 our @ISA = qw( Exporter );
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(%Repo list);
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 our %Repositories = (
     bribes => {
