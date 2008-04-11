@@ -30,10 +30,18 @@ our %Repositories = (
         PerlO    => ['MSWin32'],
     },
     gtk => {
+        location => 'http://www.lostmind.de/gtk2-perl/ppm/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'gtk2-perl bindings',
+        PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    'gtk-old' => {
         location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Get your Gtk2 modules here',
+        Notes    => 'Old "official" Gtk2 repository',
         PerlV    => [ 5.8 ],
         PerlO    => ['MSWin32'],
     },
@@ -126,6 +134,14 @@ our %Repo = (
 		'5.6'  => 'http://www.bribes.org/perl/ppm',
 		'5.8'  => 'http://www.bribes.org/perl/ppm',
 		'5.10' => 'http://www.bribes.org/perl/ppm',
+	    },
+	},
+    },
+    gtk => {
+	www => 'http://www.lostmind.de/gtk2-perl',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.8' => 'http://www.lostmind.de/gtk2-perl/ppm/',
 	    },
 	},
     },
