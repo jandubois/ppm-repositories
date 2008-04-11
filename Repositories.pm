@@ -15,7 +15,7 @@ our %Repositories = (
         location => 'http://www.bribes.org/perl/ppm/',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Digest::*, Net::Pcap, Win32::* ...',
+        Notes    => 'Bribes de Perl',
         PerlV    => [ 5.6, 5.8 ],
         PerlO    => ['MSWin32'],
     },
@@ -23,13 +23,13 @@ our %Repositories = (
         location => 'http://ppd.develop-help.com/ppd',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Get your Apache::Session here',
+        Notes    => 'Imager and HTML::Embperl',
 	# this repository contains a mix of 5.6 and 5.8 packages, but
 	# each individual module is for only one of the 2 versions. :(
         PerlV    => [ 5.6, 5.8 ],
         PerlO    => ['MSWin32'],
     },
-    gtk => {
+    gtk2 => {
         location => 'http://www.lostmind.de/gtk2-perl/ppm/',
         Type     => 'Webpage',
         Active   => 1,
@@ -37,7 +37,7 @@ our %Repositories = (
         PerlV    => [ 5.8 ],
         PerlO    => ['MSWin32'],
     },
-    'gtk-old' => {
+    'gtk2-old' => {
         location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
         Type     => 'Webpage',
         Active   => 1,
@@ -49,7 +49,7 @@ our %Repositories = (
         location => 'http://jenda.krynicky.cz/perl',
         Type     => 'Webpage or PPMServer?',
         Active   => 0,
-        Notes    => 'AWSOME (tons of Win32 related stuff by him)',
+        Notes    => 'Jenda\'s modules',
         PerlV    => [ 5.6, 5.8 ],
         PerlO    => ['MSWin32'],
     },
@@ -74,7 +74,7 @@ our %Repositories = (
         location => 'http://www.roth.net/perl/packages/',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'More Win32:: stuff',
+        Notes    => 'Dave Roth\'s modules',
         PerlV    => [ 5.6, 5.8],
         PerlO    => ['MSWin32'],
     },
@@ -86,11 +86,27 @@ our %Repositories = (
         PerlV    => [ 5.6, 5.8 ],
         PerlO    => ['MSWin32'],
     },
+    tcool => {
+        location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
+        Type     => 'PPMServer',
+        Active   => 1,
+        Notes    => 'Kenichi Ishigaki\'s repository (PPM3))',
+        PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    tcoolS => {
+        location => 'http://ppm.tcool.org/archives/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Kenichi Ishigaki\'s repository (PPM4)',
+        PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
     theory => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
         Active   => 1,
-        Notes    => 'Get your mod_perl(s) here',
+        Notes    => 'University of Winnipeg: 5.6',
         PerlV    => [ 5.6 ],
         PerlO    => ['MSWin32'],
     },
@@ -98,7 +114,7 @@ our %Repositories = (
         location => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Get your mod_perl(s) here(SLOWER)',
+        Notes    => 'University of Winnipeg: 5.6 (slower)',
         PerlV    => [ 5.6 ],
         PerlO    => ['MSWin32'],
     },
@@ -106,7 +122,7 @@ our %Repositories = (
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer58',
         Type     => 'PPMServer',
         Active   => 1,
-        Notes    => 'Get your mod_perl(s) here',
+        Notes    => 'University of Winnipeg: 5.8 (PPM3)',
         PerlV    => [ 5.8 ],
         PerlO    => ['MSWin32'],
     },
@@ -114,21 +130,48 @@ our %Repositories = (
         location => 'http://theoryx5.uwinnipeg.ca/ppms',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Get your mod_perl(s) here(SLOWER)',
+        Notes    => 'University of Winnipeg: 5.8 (PPM4)',
         PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    theory510 => {
+        location => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'University of Winnipeg: 5.10',
+        PerlV    => [ '5.10' ],
+        PerlO    => ['MSWin32'],
+    },
+    trouchelle58 => {
+        location => 'http://trouchelle.com/ppm/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Trouchelle (PPM3)',
+        PerlV    => [ 5.8 ],
+        PerlO    => ['MSWin32'],
+    },
+    trouchelle510 => {
+        location => 'http://trouchelle.com/ppm10/',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'Trouchelle (PPM4)',
+        PerlV    => [ '5.10' ],
         PerlO    => ['MSWin32'],
     },
 );
 
+
 our %Repo = (
     activestate => {
-	www => 'http://ppm.activestate.com/',
+	www  => 'http://ppm.activestate.com/',
+	desc => 'ActiveState',
 	arch => {
 	    # filled in below
 	},
     },
     bribes => {
-	www => 'http://www.bribes.org/perl/ppmdir.html',
+	www  => 'http://www.bribes.org/perl/ppmdir.html',
+	desc => 'Bribes de Perl',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.6'  => 'http://www.bribes.org/perl/ppm',
@@ -137,8 +180,9 @@ our %Repo = (
 	    },
 	},
     },
-    gtk => {
-	www => 'http://www.lostmind.de/gtk2-perl',
+    gtk2 => {
+	www  => 'http://www.lostmind.de/gtk2-perl',
+	desc => 'gtk2-perl bindings',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.8' => 'http://www.lostmind.de/gtk2-perl/ppm/',
@@ -146,13 +190,15 @@ our %Repo = (
 	},
     },
     log4perl => {
-	www => 'http://log4perl.sourceforge.net',
+	www  => 'http://log4perl.sourceforge.net',
+	desc => 'log4perl',
 	arch => {
 	    'perl' => 'http://log4perl.sourceforge.net/ppm',
 	},
     },
     roth => {
-	www => 'http://www.roth.net/perl/packages/',
+	www  => 'http://www.roth.net/perl/packages/',
+	desc => 'Dave Roth\'s modules',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.6' => 'http://www.roth.net/perl/packages/',
@@ -161,7 +207,8 @@ our %Repo = (
 	},
     },
     sablotron => {
-	www => 'http://ppm.gingerall.cz',
+	www  => 'http://ppm.gingerall.cz',
+	desc => 'XML::Sablotron',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.6' => 'http://ppm.gingerall.cz',
@@ -170,7 +217,8 @@ our %Repo = (
 	},
     },
     tcool => {
-	www => 'http://ppm.tcool.org/intro/register',
+	www  => 'http://ppm.tcool.org/intro/register',
+	desc => 'Kenichi Ishigaki\'s repository',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.8'  => 'http://ppm.tcool.org/archives/',
@@ -178,7 +226,8 @@ our %Repo = (
 	},
     },
     trouchelle => {
-	www => 'http://trouchelle.com/perl/ppmrepview.pl',
+	www  => 'http://trouchelle.com/perl/ppmrepview.pl',
+	desc => 'Trouchelle',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.8'  => 'http://trouchelle.com/ppm/',
@@ -187,7 +236,8 @@ our %Repo = (
 	},
     },
     uwinnipeg => {
-	www => 'http://cpan.uwinnipeg.ca/',
+	www  => 'http://cpan.uwinnipeg.ca/',
+	desc => 'University of Winnipeg',
 	arch => {
 	    'MSWin32-x86' => {
 		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
@@ -257,7 +307,8 @@ PPM::Repositories - a list of all I<known> ppm package repositories
         print "Perl $version\n";
         my %repo = PPM::Repositories::list($version);
         for my $name (sort keys %repo) {
-            printf "  %-12s %s\n", $name, $repo{$name}{url};
+            printf "  %-12s %-30s %s\n", $name, $repo{$name}{desc},
+                                         $repo{$name}{url};
         }
         print "\n";
     }
