@@ -173,7 +173,7 @@ our %Repo = (
 	www  => 'http://www.bribes.org/perl/ppmdir.html',
 	desc => 'Bribes de Perl',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.6'  => 'http://www.bribes.org/perl/ppm',
 		'5.8'  => 'http://www.bribes.org/perl/ppm',
 		'5.10' => 'http://www.bribes.org/perl/ppm',
@@ -184,7 +184,7 @@ our %Repo = (
 	www  => 'http://www.lostmind.de/gtk2-perl',
 	desc => 'gtk2-perl bindings',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.8' => 'http://www.lostmind.de/gtk2-perl/ppm/',
 	    },
 	},
@@ -200,7 +200,7 @@ our %Repo = (
 	www  => 'http://www.roth.net/perl/packages/',
 	desc => 'Dave Roth\'s modules',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.6' => 'http://www.roth.net/perl/packages/',
 		'5.8' => 'http://www.roth.net/perl/packages/',
 	    },
@@ -210,7 +210,7 @@ our %Repo = (
 	www  => 'http://ppm.gingerall.cz',
 	desc => 'XML::Sablotron',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.6' => 'http://ppm.gingerall.cz',
 		'5.8' => 'http://ppm.gingerall.cz',
 	    },
@@ -220,7 +220,7 @@ our %Repo = (
 	www  => 'http://ppm.tcool.org/intro/register',
 	desc => 'Kenichi Ishigaki\'s repository',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.8'  => 'http://ppm.tcool.org/archives/',
 	    },
 	},
@@ -229,7 +229,7 @@ our %Repo = (
 	www  => 'http://trouchelle.com/perl/ppmrepview.pl',
 	desc => 'Trouchelle',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.8'  => 'http://trouchelle.com/ppm/',
 		'5.10' => 'http://trouchelle.com/ppm10/',
 	    },
@@ -239,7 +239,7 @@ our %Repo = (
 	www  => 'http://cpan.uwinnipeg.ca/',
 	desc => 'University of Winnipeg',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
 		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
 		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
@@ -252,9 +252,16 @@ our %Repo = (
 for my $arch (qw(MSWin32-x86 MSWin32-x64 i686-linux sun4-solaris darwin
 		 PA-RISC1.1 PA-RISC2.0-LP64 IA64.ARCHREV_0 IA64.ARCHREV_0-LP64))
 {
-    $Repo{activestate}{arch}{$arch}{'5.8'}  = "http://ppm4.activestate.com/$arch/5.8/800/";
+    my $fullarch = "$arch-thread-multi";
+    $fullarch = "$arch-thread-multi-2level" if $arch =~ /^darwin/;
+    $fullarch = "$arch-multi-thread"        if $arch =~ /^MSWin/;
+
+    $Repo{activestate}{arch}{$fullarch}{'5.8'}  = "http://ppm4.activestate.com/$arch/5.8/800/";
+
+    # There are no HP-UX 5.10 repositories (yet).
     next if $arch =~ /^(PA-RISC|IA64)/;
-    $Repo{activestate}{arch}{$arch}{'5.10'} = "http://ppm4.activestate.com/$arch/5.10/1000/";
+
+    $Repo{activestate}{arch}{$fullarch}{'5.10'} = "http://ppm4.activestate.com/$arch/5.10/1000/";
 }
 
 sub list {
@@ -267,7 +274,6 @@ sub list {
 	require Config;
 	$arch = $Config::Config{archname};
     }
-    $arch =~ s/-(thread|multi|2level)\b//g;
 
     my %list;
     foreach my $name (keys %Repo) {
@@ -340,7 +346,7 @@ entity. A sample entry looks like this:
 	www  => 'http://cpan.uwinnipeg.ca/',
 	desc => 'University of Winnipeg',
 	arch => {
-	    'MSWin32-x86' => {
+	    'MSWin32-x86-multi-thread' => {
 		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
 		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
 		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
@@ -358,9 +364,8 @@ provided content for more specialized repositories (e.g. C<< "gtk2-perl
 bindings" >>).
 
 The C<arch> key contains a hash reference, whose keys in turn should be
-the Perl architectures that are supported by this repository.  This is
-essentially the same as $Config{archname} for the platform, but with all
-substrings matching C<< /-(thread|multi|2level)\b/ >> removed.
+the Perl architectures that are supported by this repository.  This
+value is $Config{archname} for the current platform.
 
 Each architecture in turn is a hash reference using the major Perl
 version as the key and the repository URL as the value.  Note that the
