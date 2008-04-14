@@ -284,24 +284,11 @@ sub list {
 
 __END__
 
-=head1 NAME
-
-PPM::Repositories - a list of all I<known> ppm package repositories
+PPM::Repositories - a list of PPM package repositories
 
 =head1 SYNOPSIS
 
-    # Print out all *Active* repositories for perl 5.8.x
-    use PPM::Repositories;
-    for my $rep ( sort keys %Repositories ) {
-        next unless $Repositories{$rep}->{Active};
-        next unless grep { $_ == 5.8 } @{ $Repositories{$rep}->{PerlV} };
-        print "$rep\n";
-        print "  $Repositories{$rep}->{location}\n";
-        print "  $Repositories{$rep}->{Notes}\n\n";
-    }
-
-
-    # Print all repositories for the current architecture using the new API
+    # Print all repositories for the current architecture
     use PPM::Repositories;
     for my $version (qw(5.6 5.8 5.10)) {
         print "Perl $version\n";
@@ -313,11 +300,104 @@ PPM::Repositories - a list of all I<known> ppm package repositories
         print "\n";
     }
 
+    # Example for the "old" interface:
+    # Print out all *Active* repositories for perl 5.8.x
+    use PPM::Repositories;
+    for my $rep ( sort keys %Repositories ) {
+        next unless $Repositories{$rep}->{Active};
+        next unless grep { $_ == 5.8 } @{ $Repositories{$rep}->{PerlV} };
+        print "$rep\n";
+        print "  $Repositories{$rep}->{location}\n";
+        print "  $Repositories{$rep}->{Notes}\n\n";
+    }
+
+
 =head1 DESCRIPTION
 
-This is a list of PPM repositores for Perl 5.6 and later.
+This module contains a list of PPM repositories for Perl 5.6 and later.
+For backwards compatibility reasons it exposes the data in 2 different
+mechanism.
 
-An example entry in C<%Repositories> looks like:
+The new interface uses the %Repo hash and the list() function and is
+supplied for the benefit of PPM version 4 and later.  The old
+interface uses the %Repositories hash and should be used for PPM
+version 2 and 3.
+
+=head2 The new interface
+
+The "new" interface is aimed primarily at PPM version 4 users, but also
+contains information about Perl 5.6 and 5.8 repositories that can be
+used by PPM version 2 and 3.
+
+=over
+
+=item %Repo
+
+The %Repo hash uses a one entry for all repositories hosted by a single
+entity. A sample entry looks like this:
+
+    uwinnipeg => {
+	www  => 'http://cpan.uwinnipeg.ca/',
+	desc => 'University of Winnipeg',
+	arch => {
+	    'MSWin32-x86' => {
+		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
+		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
+		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
+	    },
+	},
+    },
+
+The C<www> key provides a URL that will display additional information
+about the repository in a browser (for human consumption, not structured
+data for any tools).
+
+The C<desc> key contains a description string, giving either a more
+verbose description of the repository host, or an indication of the
+provided content for more specialized repositories (e.g. C<< "gtk2-perl
+bindings" >>).
+
+The C<arch> key contains a hash reference, whose keys in turn should be
+the Perl architectures that are supported by this repository.  This is
+essentially the same as $Config{archname} for the platform, but with all
+substrings matching C<< /-(thread|multi|2level)/ >> removed.
+
+Each architecture in turn is a hash reference using the major Perl
+version as the key and the repository URL as the value.  Note that the
+key for Perl 5.10 must be quoted to avoid stripping off the trailing
+'0'.
+
+Alternatively the C<arch> hash may also contain a single C<perl> entry
+pointing to a repository URL containing pure-Perl modules. This
+repository may be used by any Perl version and architecture.
+
+=item list(VERSION, ARCH)
+
+The list() function returns a hash of all repositories that provide
+modules for the specified Perl VERSION and architecture ARCH.  It
+determines VERSION and ARCH from the C<Config> module if they are
+not specified in the function call:
+
+    my %repo = PPM::Repositories::list("5.10", "MSWin32-x64");
+
+The returned hash has the same format as the %Repo hash described above,
+with the following exception: The C<arch> key is removed, and a C<url>
+key pointing to the repository for the requested architecture is added.
+
+=back
+
+=head2 The old interface
+
+The "old" interface is supported mainly for backwards compatibility. It
+uses the old structure layout, and continues to list SOAP style
+repositories (called "PPMServer") that are no longer supported in PPM
+version 4.
+
+=over
+
+=item %Repositories
+
+An example entry in %Repositories looks like:
 
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
@@ -337,9 +417,13 @@ time this module was released.
 PerlO is the value of $^O.  See L<perlport> for a list of values for
 this variable.
 
+=back
+
 =head2 EXPORT
 
-C<%Repositories> is exported by default.
+%Repositories is exported by default.
+
+%Repo and list() are only exported on demand.
 
 =head1 BUGS/ADDITIONS/ETC
 
