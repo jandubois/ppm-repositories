@@ -267,7 +267,7 @@ sub list {
 	require Config;
 	$arch = $Config::Config{archname};
     }
-    1 while $arch =~ s/-(thread|multi|2level)//;
+    $arch =~ s/-(thread|multi|2level)\b//g;
 
     my %list;
     foreach my $name (keys %Repo) {
@@ -360,7 +360,7 @@ bindings" >>).
 The C<arch> key contains a hash reference, whose keys in turn should be
 the Perl architectures that are supported by this repository.  This is
 essentially the same as $Config{archname} for the platform, but with all
-substrings matching C<< /-(thread|multi|2level)/ >> removed.
+substrings matching C<< /-(thread|multi|2level)\b/ >> removed.
 
 Each architecture in turn is a hash reference using the major Perl
 version as the key and the repository URL as the value.  Note that the
