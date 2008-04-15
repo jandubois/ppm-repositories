@@ -1,8 +1,11 @@
 Changes
-Makefile.PL
 MANIFEST
 MANIFEST.SKIP
+META.yml                                Module meta-data (added by MakeMaker)
+Makefile.PL
 README
 Repositories.pm
+eg/obsolete.pl
+eg/sample.pl
+eg/synopsis.pl
 test.pl
-META.yml                                Module meta-data (added by MakeMaker)
