@@ -8,7 +8,7 @@ Revision history for Perl extension PPM::Repositories
     - turned jenda's repository to inactive
     - added tcool and trouchelle repositories
     - addded new gtk2 repo; renamed outdated "official" one to gtk2-old
-    - added new %Repo hash and list() function
+    - added get(), list() and used_archs() function
     - updated documentation
 
 0.11  Thu May 12 04:46:47 2005
