@@ -282,7 +282,9 @@ for my $arch (qw(
 
 sub _default_arch {
     my $arch = $Config{archname};
-    $arch .= "-$Config{PERL_REVISION}.$Config{PERL_VERSION}";
+    if ($] >= 5.008) {
+	$arch .= "-$Config{PERL_REVISION}.$Config{PERL_VERSION}";
+    }
     return $arch;
 }
 
