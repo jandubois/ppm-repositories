@@ -346,18 +346,6 @@ PPM::Repositories - a list of PPM package repositories
 	}
     }
 
-    # Example for the "old" interface:
-    # Print out all *Active* repositories for perl 5.8.x
-    use PPM::Repositories;
-    for my $rep ( sort keys %Repositories ) {
-        next unless $Repositories{$rep}->{Active};
-        next unless grep { $_ == 5.8 } @{ $Repositories{$rep}->{PerlV} };
-        print "$rep\n";
-        print "  $Repositories{$rep}->{location}\n";
-        print "  $Repositories{$rep}->{Notes}\n\n";
-    }
-
-
 =head1 DESCRIPTION
 
 This module contains a list of PPM repositories for Perl 5.6 and later.
@@ -403,7 +391,10 @@ architecture.  Similarly the C<packlist_noarch> key may point to an
 architecture-independent repository hosted by the same system.  Either
 or both of C<packlist> and C<packlist_noarch> may be undefined.
 
-ARCH will default to the current Perl version and architecture.
+ARCH will default to the current Perl version and architecture (it is
+the same as $Config{archname} under Perl 5.6, and has the major Perl
+version appended for later versions, such as "$Config{archname}-5.8"
+for Perl 5.8).
 
 The get() function will return an empty list if the repository NAME
 does not exist at all.
