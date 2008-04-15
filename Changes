@@ -10,6 +10,8 @@ Revision history for Perl extension PPM::Repositories
     - addded new gtk2 repo; renamed outdated "official" one to gtk2-old
     - added get(), list() and used_archs() function
     - updated documentation
+    - added some simple tests to test.pl
+    - added sample scripts in eg/ subdirectory
 
 0.11  Thu May 12 04:46:47 2005
     - removed some repositories that are gone for good
