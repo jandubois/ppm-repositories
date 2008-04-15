@@ -3,11 +3,13 @@ package PPM::Repositories;
 use strict;
 use warnings;
 
+use Config qw(%Config);
+
 require Exporter;
 
-our @ISA = qw( Exporter );
+our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
-our @EXPORT_OK = qw(%Repo list);
+our @EXPORT_OK = qw(get list used_archs);
 our $VERSION = '0.12';
 
 our %Repositories = (
@@ -160,130 +162,165 @@ our %Repositories = (
     },
 );
 
-
-our %Repo = (
+#
+# * An undef repo URL defaults to the "packlist" value, which
+#   in turn defaults to the "home" value.
+#
+# * The "packlist" and "arch" keys are implementation details
+#   and are not exposed outside the module.
+#
+my %REPO = (
     activestate => {
-	www  => 'http://ppm.activestate.com/',
+	home  => 'http://ppm.activestate.com/',
 	desc => 'ActiveState',
 	arch => {
 	    # filled in below
 	},
     },
     bribes => {
-	www  => 'http://www.bribes.org/perl/ppmdir.html',
+	home => 'http://www.bribes.org/perl/ppmdir.html',
 	desc => 'Bribes de Perl',
+	packlist => 'http://www.bribes.org/perl/ppm',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.6'  => 'http://www.bribes.org/perl/ppm',
-		'5.8'  => 'http://www.bribes.org/perl/ppm',
-		'5.10' => 'http://www.bribes.org/perl/ppm',
-	    },
+	    'MSWin32-x86-multi-thread-5.6'  => undef,
+	    'MSWin32-x86-multi-thread-5.8'  => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
 	},
     },
     gtk2 => {
-	www  => 'http://www.lostmind.de/gtk2-perl',
+	home => 'http://www.lostmind.de/gtk2-perl',
 	desc => 'gtk2-perl bindings',
+	packlist => 'http://www.lostmind.de/gtk2-perl/ppm/',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.8' => 'http://www.lostmind.de/gtk2-perl/ppm/',
-	    },
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
     log4perl => {
-	www  => 'http://log4perl.sourceforge.net',
+	home => 'http://log4perl.sourceforge.net',
 	desc => 'log4perl',
+	packlist => 'http://log4perl.sourceforge.net/ppm',
 	arch => {
-	    'perl' => 'http://log4perl.sourceforge.net/ppm',
+	    'noarch' => undef,
 	},
     },
     roth => {
-	www  => 'http://www.roth.net/perl/packages/',
+	home => 'http://www.roth.net/perl/packages/',
 	desc => 'Dave Roth\'s modules',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.6' => 'http://www.roth.net/perl/packages/',
-		'5.8' => 'http://www.roth.net/perl/packages/',
-	    },
+	    'MSWin32-x86-multi-thread-5.6' => undef,
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
     sablotron => {
-	www  => 'http://ppm.gingerall.cz',
+	home => 'http://ppm.gingerall.cz',
 	desc => 'XML::Sablotron',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.6' => 'http://ppm.gingerall.cz',
-		'5.8' => 'http://ppm.gingerall.cz',
-	    },
+	    'MSWin32-x86-multi-thread-5.6' => undef,
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
     tcool => {
-	www  => 'http://ppm.tcool.org/intro/register',
+	home => 'http://ppm.tcool.org/intro/register',
 	desc => 'Kenichi Ishigaki\'s repository',
+	packlist => 'http://ppm.tcool.org/archives/',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.8'  => 'http://ppm.tcool.org/archives/',
-	    },
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
     trouchelle => {
-	www  => 'http://trouchelle.com/perl/ppmrepview.pl',
+	home  => 'http://trouchelle.com/perl/ppmrepview.pl',
 	desc => 'Trouchelle',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.8'  => 'http://trouchelle.com/ppm/',
-		'5.10' => 'http://trouchelle.com/ppm10/',
-	    },
+	    'MSWin32-x86-multi-thread-5.8' =>
+		'http://trouchelle.com/ppm/',
+	    'MSWin32-x86-multi-thread-5.10' =>
+		'http://trouchelle.com/ppm10/',
 	},
     },
     uwinnipeg => {
-	www  => 'http://cpan.uwinnipeg.ca/',
+	home  => 'http://cpan.uwinnipeg.ca/',
 	desc => 'University of Winnipeg',
 	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
-		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
-		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
-	    },
+	    'MSWin32-x86-multi-thread-5.6' =>
+		'http://theoryx5.uwinnipeg.ca/ppmpackages/',
+	    'MSWin32-x86-multi-thread-5.8' =>
+		'http://theoryx5.uwinnipeg.ca/ppms/',
+	    'MSWin32-x86-multi-thread-5.10' =>
+		'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
 	},
     },
 );
 
 # Add URLs for all ActiveState repos
-for my $arch (qw(MSWin32-x86 MSWin32-x64 i686-linux sun4-solaris darwin
-		 PA-RISC1.1 PA-RISC2.0-LP64 IA64.ARCHREV_0 IA64.ARCHREV_0-LP64))
+for my $arch (qw(
+		 IA64.ARCHREV_0
+		 IA64.ARCHREV_0-LP64
+		 MSWin32-x64
+		 MSWin32-x86
+		 PA-RISC1.1
+		 PA-RISC2.0-LP64
+		 darwin
+		 i686-linux
+		 sun4-solaris
+	        ))
 {
     my $fullarch = "$arch-thread-multi";
     $fullarch = "$arch-thread-multi-2level" if $arch =~ /^darwin/;
     $fullarch = "$arch-multi-thread"        if $arch =~ /^MSWin/;
 
-    $Repo{activestate}{arch}{$fullarch}{'5.8'}  = "http://ppm4.activestate.com/$arch/5.8/800/";
+    $REPO{activestate}{arch}{"$fullarch-5.8"} =
+	"http://ppm4.activestate.com/$arch/5.8/800/";
+
+    next if $arch eq "MSWin32-x64";
 
     # There are no HP-UX 5.10 repositories (yet).
     next if $arch =~ /^(PA-RISC|IA64)/;
 
-    $Repo{activestate}{arch}{$fullarch}{'5.10'} = "http://ppm4.activestate.com/$arch/5.10/1000/";
+    $REPO{activestate}{arch}{"$fullarch-5.10"} =
+	"http://ppm4.activestate.com/$arch/5.10/1000/";
+}
+
+sub _default_arch {
+    my $arch = $Config{archname};
+    $arch .= "-$Config{PERL_REVISION}.$Config{PERL_VERSION}";
+    return $arch;
+}
+
+sub get {
+    my $name = shift;
+    return () unless exists $REPO{$name};
+
+    my %repo = %{$REPO{$name}};
+    my $arch = shift || _default_arch();
+
+    # Set up "url" and "url_noarch" keys
+    if (exists $repo{arch}{$arch}) {
+	$repo{url} = $repo{arch}{$arch};
+	$repo{url} ||= $repo{packlist} || $repo{home}
+    }
+    if (exists $repo{arch}{noarch}) {
+	$repo{url_noarch} = $repo{arch}{noarch};
+	$repo{url_noarch} ||= $repo{packlist} || $repo{home}
+    }
+
+    # Remove internal keys
+    delete $repo{$_} for qw(arch packlist);
+
+    return %repo;
 }
 
 sub list {
-    my($version,$arch) = @_;
-    unless ($version) {
-	require Config;
-	$version = "$Config::Config{PERL_REVISION}.$Config::Config{PERL_VERSION}";
-    }
-    unless ($arch) {
-	require Config;
-	$arch = $Config::Config{archname};
-    }
+    my $arch = shift || _default_arch();
+    return sort grep {
+	exists $REPO{$_}{arch}{$arch} or
+        exists $REPO{$_}{arch}{noarch}
+    } keys %REPO;
+}
 
-    my %list;
-    foreach my $name (keys %Repo) {
-	my %repo = %{$Repo{$name}};
-	$repo{url} = $repo{arch}->{$arch}->{$version} || $repo{arch}->{perl};
-	next unless $repo{url};
-	delete $repo{arch};
-	$list{$name} = \%repo;
-    }
-    return (%list);
+sub used_archs {
+    my %arch;
+    $arch{$_} = 1 for map keys %{$REPO{$_}{arch}}, keys %REPO;
+    return sort keys %arch;
 }
 
 1;
@@ -294,16 +331,17 @@ PPM::Repositories - a list of PPM package repositories
 
 =head1 SYNOPSIS
 
-    # Print all repositories for the current architecture
-    use PPM::Repositories;
-    for my $version (qw(5.6 5.8 5.10)) {
-        print "Perl $version\n";
-        my %repo = PPM::Repositories::list($version);
-        for my $name (sort keys %repo) {
-            printf "  %-12s %-30s %s\n", $name, $repo{$name}{desc},
-                                         $repo{$name}{url};
-        }
-        print "\n";
+    # Print all repositories for all architectures
+    use PPM::Repositories qw(get list used_archs);
+    for my $arch (used_archs()) {
+        print "$arch\n";
+        for my $name (list($arch)) {
+	    print "  $name\n";
+	    my %repo = get($name, $arch);
+	    for my $field (sort keys %repo) {
+	        printf "    %-12s %s\n", $field, $repo{$field};
+            }
+	}
     }
 
     # Example for the "old" interface:
@@ -324,10 +362,9 @@ This module contains a list of PPM repositories for Perl 5.6 and later.
 For backwards compatibility reasons it exposes the data in 2 different
 mechanism.
 
-The new interface uses the %Repo hash and the list() function and is
-supplied for the benefit of PPM version 4 and later.  The old
-interface uses the %Repositories hash and should be used for PPM
-version 2 and 3.
+The new interface uses API functions and is supplied for the benefit
+of PPM version 4 and later.  The old interface directly exposes the
+%Repositories hash and should be used for PPM version 2 and 3.
 
 =head2 The new interface
 
@@ -337,24 +374,19 @@ used by PPM version 2 and 3.
 
 =over
 
-=item %Repo
+=item get(NAME, ARCH)
 
-The %Repo hash uses a one entry for all repositories hosted by a single
-entity. A sample entry looks like this:
+The get() function returns a hash describing the NAME repository
+for architecture ARCH. It looks like this:
 
-    uwinnipeg => {
-	www  => 'http://cpan.uwinnipeg.ca/',
-	desc => 'University of Winnipeg',
-	arch => {
-	    'MSWin32-x86-multi-thread' => {
-		'5.6'  => 'http://theoryx5.uwinnipeg.ca/ppmpackages/',
-		'5.8'  => 'http://theoryx5.uwinnipeg.ca/ppms/',
-		'5.10' => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
-	    },
-	},
-    },
+  (
+    home       => 'http://cpan.example.com/',
+    desc       => 'Example Repository',
+    url        => 'http://cpan.example.com/PPMPackages/10xx/',
+    url_noarch => 'http://cpan.example.com/PPMPackages/noarch/',
+  )
 
-The C<www> key provides a URL that will display additional information
+The C<home> key provides a URL that will display additional information
 about the repository in a browser (for human consumption, not structured
 data for any tools).
 
@@ -363,31 +395,30 @@ verbose description of the repository host, or an indication of the
 provided content for more specialized repositories (e.g. C<< "gtk2-perl
 bindings" >>).
 
-The C<arch> key contains a hash reference, whose keys in turn should be
-the Perl architectures that are supported by this repository.  This
-value is $Config{archname} for the current platform.
+The C<url> key will point to the repository for the architecture ARCH
+and will only be defined if the repository supports this architecture.
+Similarly the C<url_noarch> key may point to an architecture-independent
+repository hosted by the same system.  Either or both of C<url> and
+C<url_noarch> may be undefined.
 
-Each architecture in turn is a hash reference using the major Perl
-version as the key and the repository URL as the value.  Note that the
-key for Perl 5.10 must be quoted to avoid stripping off the trailing
-'0'.
+ARCH will default to the current Perl version and architecture.
 
-Alternatively the C<arch> hash may also contain a single C<perl> entry
-pointing to a repository URL containing pure-Perl modules. This
-repository may be used by any Perl version and architecture.
+The get() function will return an empty list if the repository NAME
+does not exist at all.
 
-=item list(VERSION, ARCH)
+=item list(ARCH)
 
-The list() function returns a hash of all repositories that provide
-modules for the specified Perl VERSION and architecture ARCH.  It
-determines VERSION and ARCH from the C<Config> module if they are
-not specified in the function call:
+The list() function returns a list of names for all repositories that
+contain modules for architecture ARCH.  This will include all
+repositories providing architecture-independent modules as well.
 
-    my %repo = PPM::Repositories::list("5.10", "MSWin32-x64");
+ARCH will default to the current Perl version and architecture.
 
-The returned hash has the same format as the %Repo hash described above,
-with the following exception: The C<arch> key is removed, and a C<url>
-key pointing to the repository for the requested architecture is added.
+=item used_archs()
+
+This function returns a list of all architectures that have at least
+one repository recorded in this module.  This list will include the
+pseudo-architecture C<noarch> for architecture-independent modules.
 
 =back
 
@@ -428,7 +459,7 @@ this variable.
 
 %Repositories is exported by default.
 
-%Repo and list() are only exported on demand.
+get(), list(), and used_archs() are only exported on demand.
 
 =head1 BUGS/ADDITIONS/ETC
 
