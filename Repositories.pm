@@ -172,7 +172,7 @@ our %Repositories = (
 my %REPO = (
     activestate => {
 	home  => 'http://ppm.activestate.com/',
-	desc => 'ActiveState',
+	desc => 'Default ActivePerl repository from ActiveState',
 	arch => {
 	    # filled in below
 	},
@@ -182,7 +182,7 @@ my %REPO = (
 	desc => 'Bribes de Perl',
 	packlist => 'http://www.bribes.org/perl/ppm',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.6'  => undef,
+	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8'  => undef,
 	    'MSWin32-x86-multi-thread-5.10' => undef,
 	},
@@ -207,7 +207,7 @@ my %REPO = (
 	home => 'http://www.roth.net/perl/packages/',
 	desc => 'Dave Roth\'s modules',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.6' => undef,
+	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
@@ -215,7 +215,7 @@ my %REPO = (
 	home => 'http://ppm.gingerall.cz',
 	desc => 'XML::Sablotron',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.6' => undef,
+	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
@@ -241,7 +241,7 @@ my %REPO = (
 	home  => 'http://cpan.uwinnipeg.ca/',
 	desc => 'University of Winnipeg',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.6' =>
+	    'MSWin32-x86-multi-thread' =>
 		'http://theoryx5.uwinnipeg.ca/ppmpackages/',
 	    'MSWin32-x86-multi-thread-5.8' =>
 		'http://theoryx5.uwinnipeg.ca/ppms/',
@@ -293,18 +293,18 @@ sub get {
     my %repo = %{$REPO{$name}};
     my $arch = shift || _default_arch();
 
-    # Set up "url" and "url_noarch" keys
+    # Set up "packlist" and "packlist_noarch" keys
+    my $packlist = $repo{packlist} || $repo{home};
+    delete $repo{packlist};
     if (exists $repo{arch}{$arch}) {
-	$repo{url} = $repo{arch}{$arch};
-	$repo{url} ||= $repo{packlist} || $repo{home}
+	$repo{packlist} = $repo{arch}{$arch};
+	$repo{packlist} ||= $packlist;
     }
     if (exists $repo{arch}{noarch}) {
-	$repo{url_noarch} = $repo{arch}{noarch};
-	$repo{url_noarch} ||= $repo{packlist} || $repo{home}
+	$repo{packlist_noarch} = $repo{arch}{noarch};
+	$repo{packlist_noarch} ||= $packlist;
     }
-
-    # Remove internal keys
-    delete $repo{$_} for qw(arch packlist);
+    delete $repo{arch};
 
     return %repo;
 }
@@ -380,10 +380,10 @@ The get() function returns a hash describing the NAME repository
 for architecture ARCH. It looks like this:
 
   (
-    home       => 'http://cpan.example.com/',
-    desc       => 'Example Repository',
-    url        => 'http://cpan.example.com/PPMPackages/10xx/',
-    url_noarch => 'http://cpan.example.com/PPMPackages/noarch/',
+    home            => 'http://cpan.example.com/',
+    desc            => 'Example Repository',
+    packlist        => 'http://cpan.example.com/PPMPackages/10xx/',
+    packlist_noarch => 'http://cpan.example.com/PPMPackages/noarch/',
   )
 
 The C<home> key provides a URL that will display additional information
@@ -392,14 +392,14 @@ data for any tools).
 
 The C<desc> key contains a description string, giving either a more
 verbose description of the repository host, or an indication of the
-provided content for more specialized repositories (e.g. C<< "gtk2-perl
-bindings" >>).
+provided content for more specialized repositories (e.g. C<<
+"gtk2-perl bindings" >>).
 
-The C<url> key will point to the repository for the architecture ARCH
-and will only be defined if the repository supports this architecture.
-Similarly the C<url_noarch> key may point to an architecture-independent
-repository hosted by the same system.  Either or both of C<url> and
-C<url_noarch> may be undefined.
+The C<packlist> key will point to the repository for the architecture
+ARCH and will only be defined if the repository supports this
+architecture.  Similarly the C<packlist_noarch> key may point to an
+architecture-independent repository hosted by the same system.  Either
+or both of C<packlist> and C<packlist_noarch> may be undefined.
 
 ARCH will default to the current Perl version and architecture.
 
