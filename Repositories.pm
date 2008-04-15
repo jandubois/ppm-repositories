@@ -268,10 +268,11 @@ for my $arch (qw(
     $fullarch = "$arch-thread-multi-2level" if $arch =~ /^darwin/;
     $fullarch = "$arch-multi-thread"        if $arch =~ /^MSWin/;
 
-    $REPO{activestate}{arch}{"$fullarch-5.8"} =
-	"http://ppm4.activestate.com/$arch/5.8/800/";
-
-    next if $arch eq "MSWin32-x64";
+    unless ($arch eq "MSWin32-x64") {
+	# There is no Win64 5.10 repository
+	$REPO{activestate}{arch}{"$fullarch-5.8"} =
+	    "http://ppm4.activestate.com/$arch/5.8/800/";
+    }
 
     # There are no HP-UX 5.10 repositories (yet).
     next if $arch =~ /^(PA-RISC|IA64)/;
@@ -338,8 +339,9 @@ PPM::Repositories - a list of PPM package repositories
     for my $arch (used_archs()) {
         print "$arch\n";
         for my $name (list($arch)) {
-	    print "  $name\n";
 	    my %repo = get($name, $arch);
+	    next unless $repo{packlist};
+	    print "  $name\n";
 	    for my $field (sort keys %repo) {
 	        printf "    %-12s %s\n", $field, $repo{$field};
             }
