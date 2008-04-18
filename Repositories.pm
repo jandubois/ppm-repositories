@@ -10,7 +10,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(get list used_archs);
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 our %Repositories = (
     bribes => {
@@ -25,10 +25,8 @@ our %Repositories = (
         location => 'http://ppd.develop-help.com/ppd',
         Type     => 'Webpage',
         Active   => 1,
-        Notes    => 'Imager and HTML::Embperl',
-	# this repository contains a mix of 5.6 and 5.8 packages, but
-	# each individual module is for only one of the 2 versions. :(
-        PerlV    => [ 5.6, 5.8 ],
+        Notes    => 'Imager module',
+        PerlV    => [ 5.8 ],
         PerlO    => ['MSWin32'],
     },
     gtk2 => {
@@ -187,6 +185,14 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread-5.10' => undef,
 	},
     },
+    devhelp => {
+	home => 'http://ppd.develop-help.com',
+	desc => 'Imager module',
+	packlist => 'http://ppd.develop-help.com/ppd',
+	arch => {
+	    'MSWin32-x86-multi-thread-5.8'  => undef,
+	},
+    },
     gtk2 => {
 	home => 'http://www.lostmind.de/gtk2-perl',
 	desc => 'gtk2-perl bindings',
@@ -330,7 +336,9 @@ sub used_archs {
 
 __END__
 
-PPM::Repositories - a list of PPM package repositories
+=head1 NAME
+
+PPM::Repositories - List of Perl Package Manager repositories
 
 =head1 SYNOPSIS
 

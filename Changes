@@ -1,6 +1,12 @@
 Revision history for Perl extension PPM::Repositories
 
-0.12  (unreleased)
+0.13  Fri Apr 18 2008
+    - devhelp repository has been cleaned up and only contains
+      Imager module for 5.8 now.
+    - Add devhelp repo to %REPO hash for new API too
+    - Add '=head1 NAME' line to properly define the module abstract
+
+0.12  Tue Apr 15 2008
     - removed smueller repository [http://rt.cpan.org/Ticket/Display.html?id=23979]
     - removed datetime repository [http://rt.cpan.org/Ticket/Display.html?id=17391]
     - removed dead repositories: soulcage, esoft, savage, spurkis, crazy, dada, rto
