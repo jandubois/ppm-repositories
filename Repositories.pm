@@ -137,7 +137,7 @@ for my $name (keys %Repositories) {
 #
 my %REPO = (
     activestate => {
-	home  => 'http://ppm.activestate.com/',
+	home => 'http://ppm.activestate.com/',
 	desc => 'Default ActivePerl repository from ActiveState',
 	arch => {
 	    # filled in below
@@ -149,7 +149,7 @@ my %REPO = (
 	packlist => 'http://www.bribes.org/perl/ppm',
 	arch => {
 	    'MSWin32-x86-multi-thread' => undef,
-	    'MSWin32-x86-multi-thread-5.8'  => undef,
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	    'MSWin32-x86-multi-thread-5.10' => undef,
 	},
     },
@@ -158,7 +158,7 @@ my %REPO = (
 	desc => 'Imager module',
 	packlist => 'http://ppd.develop-help.com/ppd',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.8'  => undef,
+	    'MSWin32-x86-multi-thread-5.8' => undef,
 	},
     },
     gtk2 => {
@@ -202,7 +202,7 @@ my %REPO = (
 	},
     },
     trouchelle => {
-	home  => 'http://trouchelle.com/perl/ppmrepview.pl',
+	home => 'http://trouchelle.com/perl/ppmrepview.pl',
 	desc => 'Trouchelle',
 	arch => {
 	    'MSWin32-x86-multi-thread-5.8' =>
@@ -212,7 +212,7 @@ my %REPO = (
 	},
     },
     uwinnipeg => {
-	home  => 'http://cpan.uwinnipeg.ca/',
+	home => 'http://cpan.uwinnipeg.ca/',
 	desc => 'University of Winnipeg',
 	arch => {
 	    'MSWin32-x86-multi-thread' =>
@@ -224,7 +224,7 @@ my %REPO = (
 	},
     },
     wxansi => {
-	home  => 'http://www.wxperl.co.uk/ppm.html',
+	home => 'http://www.wxperl.co.uk/ppm.html',
 	desc => 'ANSI versions of wxPerl modules',
 	packlist => 'http://www.wxperl.co.uk/repository/ansi',
 	arch => {
@@ -233,7 +233,7 @@ my %REPO = (
 	},
     },
     wxperl => {
-	home  => 'http://www.wxperl.co.uk/ppm.html',
+	home => 'http://www.wxperl.co.uk/ppm.html',
 	desc => 'wxPerl modules',
 	packlist => 'http://www.wxperl.co.uk/repository',
 	arch => {
