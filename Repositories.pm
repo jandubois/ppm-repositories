@@ -158,6 +158,22 @@ our %Repositories = (
         PerlV    => [ '5.10' ],
         PerlO    => ['MSWin32'],
     },
+    wxansi => {
+        location => 'http://www.wxperl.co.uk/repository/ansi',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'ANSI versions of wxPerl modules',
+        PerlV    => [ 5.8, '5.10' ],
+        PerlO    => ['MSWin32'],
+    },
+    wxperl => {
+        location => 'http://www.wxperl.co.uk/repository',
+        Type     => 'Webpage',
+        Active   => 1,
+        Notes    => 'wxPerl modules',
+        PerlV    => [ 5.8, '5.10' ],
+        PerlO    => ['MSWin32'],
+    },
 );
 
 #
@@ -253,6 +269,24 @@ my %REPO = (
 		'http://theoryx5.uwinnipeg.ca/ppms/',
 	    'MSWin32-x86-multi-thread-5.10' =>
 		'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
+	},
+    },
+    wxansi => {
+	home  => 'http://www.wxperl.co.uk/ppm.html',
+	desc => 'ANSI versions of wxPerl modules',
+	packlist => 'http://www.wxperl.co.uk/repository/ansi',
+	arch => {
+	    'MSWin32-x86-multi-thread-5.8' => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
+	},
+    },
+    wxperl => {
+	home  => 'http://www.wxperl.co.uk/ppm.html',
+	desc => 'wxPerl modules',
+	packlist => 'http://www.wxperl.co.uk/repository',
+	arch => {
+	    'MSWin32-x86-multi-thread-5.8' => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
 	},
     },
 );

@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.14  unreleased
+    - add wxperl and wxansi repositories
+
 0.13  Fri Apr 18 2008
     - devhelp repository has been cleaned up and only contains
       Imager module for 5.8 now.
