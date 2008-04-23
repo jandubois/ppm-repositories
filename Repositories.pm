@@ -75,27 +75,27 @@ our %Repositories = (
         location => 'http://ppm.tcool.org/archives/',
         Notes    => 'Kenichi Ishigaki\'s repository (PPM4)',
     },
-    theory => {
+    uwinnipeg => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
         Notes    => 'University of Winnipeg: 5.6',
         PerlV    => [ 5.6 ],
     },
-    theoryS => {
+    uwinnipegS => {
         location => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
         Notes    => 'University of Winnipeg: 5.6 (slower)',
         PerlV    => [ 5.6 ],
     },
-    theory58 => {
+    uwinnipeg58 => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer58',
         Type     => 'PPMServer',
         Notes    => 'University of Winnipeg: 5.8 (PPM3)',
     },
-    theory58S => {
+    uwinnipeg58S => {
         location => 'http://theoryx5.uwinnipeg.ca/ppms',
         Notes    => 'University of Winnipeg: 5.8 (PPM4)',
     },
-    theory510 => {
+    uwinnipeg510 => {
         location => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
         Notes    => 'University of Winnipeg: 5.10',
         PerlV    => [ '5.10' ],
