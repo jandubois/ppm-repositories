@@ -66,32 +66,32 @@ our %Repositories = (
         Notes    => 'Get your XML::Sablotron here',
         PerlV    => [ 5.6, 5.8 ],
     },
-    tcool => {
+    'tcool-ppm3' => {
         location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
         Type     => 'PPMServer',
         Notes    => 'Kenichi Ishigaki\'s repository (PPM3))',
     },
-    tcoolS => {
+    tcool => {
         location => 'http://ppm.tcool.org/archives/',
         Notes    => 'Kenichi Ishigaki\'s repository (PPM4)',
     },
-    uwinnipeg => {
+    'uwinnipeg56-ppm3' => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
+        Notes    => 'University of Winnipeg: 5.6 (PPM3)',
+        PerlV    => [ 5.6 ],
+    },
+    uwinnipeg56 => {
+        location => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
         Notes    => 'University of Winnipeg: 5.6',
         PerlV    => [ 5.6 ],
     },
-    uwinnipegS => {
-        location => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
-        Notes    => 'University of Winnipeg: 5.6 (slower)',
-        PerlV    => [ 5.6 ],
-    },
-    uwinnipeg58 => {
+    'uwinnipeg58-ppm3' => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer58',
         Type     => 'PPMServer',
         Notes    => 'University of Winnipeg: 5.8 (PPM3)',
     },
-    uwinnipeg58S => {
+    uwinnipeg58 => {
         location => 'http://theoryx5.uwinnipeg.ca/ppms',
         Notes    => 'University of Winnipeg: 5.8 (PPM4)',
     },
@@ -102,11 +102,11 @@ our %Repositories = (
     },
     trouchelle58 => {
         location => 'http://trouchelle.com/ppm/',
-        Notes    => 'Trouchelle (PPM3)',
+        Notes    => 'Trouchelle: 5.8',
     },
     trouchelle510 => {
         location => 'http://trouchelle.com/ppm10/',
-        Notes    => 'Trouchelle (PPM4)',
+        Notes    => 'Trouchelle: 5.10',
         PerlV    => [ '5.10' ],
     },
     wxansi => {

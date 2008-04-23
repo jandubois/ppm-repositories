@@ -3,6 +3,10 @@ Revision history for Perl extension PPM::Repositories
 0.14  unreleased
     - Add wxperl and wxansi repositories
     - Rename all 'theory' repositories to 'uwinnipeg'
+    - Append '-ppm3' to PPMServer style repositories and remove the
+      'S' (for "slower") suffix from the corresponding Website style repos
+      for a more consistent overall naming scheme.
+    - Rename 'uwinnipeg' to 'uwinnipeg56' for consistency.
 
 0.13  Fri Apr 18 2008
     - devhelp repository has been cleaned up and only contains
