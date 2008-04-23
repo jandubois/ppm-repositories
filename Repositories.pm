@@ -10,40 +10,32 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(get list used_archs);
-our $VERSION = '0.13';
+our $VERSION = '0.14';
+
+my %Default = (
+    Type   => 'Webpage',
+    Active => 1,
+    PerlV  => [ 5.8 ],
+    PerlO  => ['MSWin32'],
+);
 
 our %Repositories = (
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Bribes de Perl',
         PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     devhelp => {
         location => 'http://ppd.develop-help.com/ppd',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Imager module',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     gtk2 => {
         location => 'http://www.lostmind.de/gtk2-perl/ppm/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'gtk2-perl bindings',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     'gtk2-old' => {
         location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Old "official" Gtk2 repository',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     jenda => {
         location => 'http://jenda.krynicky.cz/perl',
@@ -51,12 +43,9 @@ our %Repositories = (
         Active   => 0,
         Notes    => 'Jenda\'s modules',
         PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'log4perl (pure perl)',
         PerlV    => [ ],
         PerlO    => ['perl'],
@@ -64,117 +53,80 @@ our %Repositories = (
     openi => {
 	# stale; last update in Feb 2004
         location => 'http://openinteract.sourceforge.net/ppmpackages/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Template Toolkit',
         PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     roth => {
         location => 'http://www.roth.net/perl/packages/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Dave Roth\'s modules',
         PerlV    => [ 5.6, 5.8],
-        PerlO    => ['MSWin32'],
     },
     sablot => {
         location => 'http://ppm.gingerall.cz',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Get your XML::Sablotron here',
         PerlV    => [ 5.6, 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     tcool => {
         location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
         Type     => 'PPMServer',
-        Active   => 1,
         Notes    => 'Kenichi Ishigaki\'s repository (PPM3))',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     tcoolS => {
         location => 'http://ppm.tcool.org/archives/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Kenichi Ishigaki\'s repository (PPM4)',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     theory => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
-        Active   => 1,
         Notes    => 'University of Winnipeg: 5.6',
         PerlV    => [ 5.6 ],
-        PerlO    => ['MSWin32'],
     },
     theoryS => {
         location => 'http://theoryx5.uwinnipeg.ca/ppmpackages',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'University of Winnipeg: 5.6 (slower)',
         PerlV    => [ 5.6 ],
-        PerlO    => ['MSWin32'],
     },
     theory58 => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer58',
         Type     => 'PPMServer',
-        Active   => 1,
         Notes    => 'University of Winnipeg: 5.8 (PPM3)',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     theory58S => {
         location => 'http://theoryx5.uwinnipeg.ca/ppms',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'University of Winnipeg: 5.8 (PPM4)',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     theory510 => {
         location => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'University of Winnipeg: 5.10',
         PerlV    => [ '5.10' ],
-        PerlO    => ['MSWin32'],
     },
     trouchelle58 => {
         location => 'http://trouchelle.com/ppm/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Trouchelle (PPM3)',
-        PerlV    => [ 5.8 ],
-        PerlO    => ['MSWin32'],
     },
     trouchelle510 => {
         location => 'http://trouchelle.com/ppm10/',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'Trouchelle (PPM4)',
         PerlV    => [ '5.10' ],
-        PerlO    => ['MSWin32'],
     },
     wxansi => {
         location => 'http://www.wxperl.co.uk/repository/ansi',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'ANSI versions of wxPerl modules',
         PerlV    => [ 5.8, '5.10' ],
-        PerlO    => ['MSWin32'],
     },
     wxperl => {
         location => 'http://www.wxperl.co.uk/repository',
-        Type     => 'Webpage',
-        Active   => 1,
         Notes    => 'wxPerl modules',
         PerlV    => [ 5.8, '5.10' ],
-        PerlO    => ['MSWin32'],
     },
 );
+
+for my $name (keys %Repositories) {
+    for my $key (keys %Default) {
+	next if $Repositories{$name}{$key};
+	$Repositories{$name}{$key} = $Default{$key};
+    }
+}
 
 #
 # * An undef repo URL defaults to the "packlist" value, which
