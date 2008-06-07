@@ -1,5 +1,9 @@
 Revision history for Perl extension PPM::Repositories
 
+0.15  unreleased
+    - add "Paul Miller's repo" as the "voltar" repository
+      [http://rt.cpan.org/Ticket/Display.html?id=36254]
+
 0.14  Wed Apr 23 2008
     - Add wxperl and wxansi repositories
     - Rename all 'theory' repositories to 'uwinnipeg'
