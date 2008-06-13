@@ -31,7 +31,7 @@ our %Repositories = (
     },
     gtk2 => {
         location => 'http://www.lostmind.de/gtk2-perl/ppm/',
-        Notes    => 'gtk2-perl bindings',
+        Notes    => 'gtk2-perl bindings (check also \'voltar\' repository)',
     },
     'gtk2-old' => {
         location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
@@ -111,7 +111,7 @@ our %Repositories = (
     },
     voltar => {
         location => 'http://voltar.org/active/5.8/',
-        Notes    => 'Paul Miller\'s repository',
+        Notes    => 'Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository',
     },
     wxansi => {
         location => 'http://www.wxperl.co.uk/repository/ansi',
@@ -167,7 +167,7 @@ my %REPO = (
     },
     gtk2 => {
 	home => 'http://www.lostmind.de/gtk2-perl',
-	desc => 'gtk2-perl bindings',
+	desc => 'gtk2-perl bindings (check also \'voltar\' repository)',
 	packlist => 'http://www.lostmind.de/gtk2-perl/ppm/',
 	arch => {
 	    'MSWin32-x86-multi-thread-5.8' => undef,
@@ -229,7 +229,7 @@ my %REPO = (
     },
     voltar => {
 	home => 'http://voltar.org/active/',
-	desc => 'Paul Miller\'s repository',
+	desc => 'Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository',
 	arch => {
 	    'MSWin32-x86-multi-thread-5.8' =>
 		'http://voltar.org/active/5.8/',

@@ -1,8 +1,9 @@
 Revision history for Perl extension PPM::Repositories
 
-0.15  unreleased
-    - add "Paul Miller's repo" as the "voltar" repository
-      [http://rt.cpan.org/Ticket/Display.html?id=36254]
+0.15  Thu Jun 12 2008
+    - add "Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository"
+      as the "voltar" repository [http://rt.cpan.org/Ticket/Display.html?id=36254]
+    - add note to "gtk2" repo to also check "voltar" repo
 
 0.14  Wed Apr 23 2008
     - Add wxperl and wxansi repositories
