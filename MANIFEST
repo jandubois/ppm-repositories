@@ -8,4 +8,4 @@ Repositories.pm
 eg/obsolete.pl
 eg/sample.pl
 eg/synopsis.pl
-test.pl
+t/test.t

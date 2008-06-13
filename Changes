@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.16 unreleased
+    - move test.pl to t/test.t to run it via Test::Harness
+
 0.15  Thu Jun 12 2008
     - add "Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository"
       as the "voltar" repository [http://rt.cpan.org/Ticket/Display.html?id=36254]
