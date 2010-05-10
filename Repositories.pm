@@ -113,15 +113,10 @@ our %Repositories = (
         location => 'http://voltar.org/active/5.8/',
         Notes    => 'Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository',
     },
-    wxansi => {
-        location => 'http://www.wxperl.co.uk/repository/ansi',
-        Notes    => 'ANSI versions of wxPerl modules',
-        PerlV    => [ 5.8, '5.10' ],
-    },
     wxperl => {
         location => 'http://www.wxperl.co.uk/repository',
         Notes    => 'wxPerl modules',
-        PerlV    => [ 5.8, '5.10' ],
+        PerlV    => [ 5.8, '5.10', '5.12' ],
     },
 );
 
@@ -235,22 +230,24 @@ my %REPO = (
 		'http://voltar.org/active/5.8/',
 	},
     },
-    wxansi => {
-	home => 'http://www.wxperl.co.uk/ppm.html',
-	desc => 'ANSI versions of wxPerl modules',
-	packlist => 'http://www.wxperl.co.uk/repository/ansi',
-	arch => {
-	    'MSWin32-x86-multi-thread-5.8' => undef,
-	    'MSWin32-x86-multi-thread-5.10' => undef,
-	},
-    },
     wxperl => {
 	home => 'http://www.wxperl.co.uk/ppm.html',
 	desc => 'wxPerl modules',
 	packlist => 'http://www.wxperl.co.uk/repository',
 	arch => {
-	    'MSWin32-x86-multi-thread-5.8' => undef,
-	    'MSWin32-x86-multi-thread-5.10' => undef,
+	    'MSWin32-x86-multi-thread-5.8'    => undef,
+	    'MSWin32-x86-multi-thread-5.10'   => undef,
+	    'MSWin32-x86-multi-thread-5.12'   => undef,
+	    'MSWin32-x64-multi-thread-5.10'   => undef,
+	    'MSWin32-x64-multi-thread-5.12'   => undef,
+	    'i686-linux-thread-multi-5.8'     => undef,
+	    'i686-linux-thread-multi-5.10'    => undef,
+	    'i686-linux-thread-multi-5.12'    => undef,
+	    'x86_64-linux-thread-multi-5.10'  => undef,
+	    'x86_64-linux-thread-multi-5.12'  => undef,
+	    'darwin-thread-multi-2level-5.8'  => undef,
+	    'darwin-thread-multi-2level-5.10' => undef,
+	    'darwin-thread-multi-2level-5.12' => undef,
 	},
     },
 );
