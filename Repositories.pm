@@ -262,6 +262,7 @@ for my $arch (qw(
 		 PA-RISC2.0-LP64
 		 darwin
 		 i686-linux
+		 x86_64-linux
 		 sun4-solaris
 	        ))
 {
@@ -269,8 +270,8 @@ for my $arch (qw(
     $fullarch = "$arch-thread-multi-2level" if $arch =~ /^darwin/;
     $fullarch = "$arch-multi-thread"        if $arch =~ /^MSWin/;
 
-    unless ($arch eq "MSWin32-x64") {
-	# There is no Win64 5.10 repository
+    unless ($arch eq "MSWin32-x64" || $arch eq "x86_64-linux") {
+	# There are no 64-bit 5.8 repositories
 	$REPO{activestate}{arch}{"$fullarch-5.8"} =
 	    "http://ppm4.activestate.com/$arch/5.8/800/";
     }
@@ -280,6 +281,9 @@ for my $arch (qw(
 
     $REPO{activestate}{arch}{"$fullarch-5.10"} =
 	"http://ppm4.activestate.com/$arch/5.10/1000/";
+
+    $REPO{activestate}{arch}{"$fullarch-5.12"} =
+	"http://ppm4.activestate.com/$arch/5.12/1200/";
 }
 
 sub _default_arch {

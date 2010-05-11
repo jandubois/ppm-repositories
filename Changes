@@ -4,6 +4,8 @@ Revision history for Perl extension PPM::Repositories
     - move test.pl to t/test.t to run it via Test::Harness
     - remove outdated wxansi repository  [RT#55053]
     - add additional architectures for wxperl repo [RT#55053]
+    - add ActiveState 64-bit Linux repos
+    - add ActivePerl 5.12 repos
 
 0.15  Thu Jun 12 2008
     - add "Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository"
