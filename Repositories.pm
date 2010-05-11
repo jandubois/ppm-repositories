@@ -142,6 +142,24 @@ my %REPO = (
 	    # filled in below
 	},
     },
+    bioperl => {
+	home => 'http://www.bioperl.org/wiki/Installing_Bioperl_on_Windows',
+	desc => 'BioPerl - Regular Releases',
+	packlist => 'http://bioperl.org/DIST/',
+	arch => {
+	    'MSWin32-x86-multi-thread-5.8' => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
+	},
+    },
+    'bioperl-rc' => {
+	home => 'http://www.bioperl.org/wiki/Installing_Bioperl_on_Windows',
+	desc => 'BioPerl - Release Candidates',
+	packlist => 'http://bioperl.org/DIST/RC/',
+	arch => {
+	    'MSWin32-x86-multi-thread-5.8' => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
+	},
+    },
     bribes => {
 	home => 'http://www.bribes.org/perl/ppmdir.html',
 	desc => 'Bribes de Perl',
