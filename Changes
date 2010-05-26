@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.17 Tue May 25 2010
+    - add 5.12 repos for bribes, trouchelle and uwinnipeg [RT#57814]
+
 0.16 Tue May 11 2010
     - move test.pl to t/test.t to run it via Test::Harness
     - remove outdated wxansi repository  [RT#55053]

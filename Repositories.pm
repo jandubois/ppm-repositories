@@ -10,7 +10,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(get list used_archs);
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 my %Default = (
     Type   => 'Webpage',
@@ -23,7 +23,7 @@ our %Repositories = (
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
         Notes    => 'Bribes de Perl',
-        PerlV    => [ 5.6, 5.8 ],
+        PerlV    => [ 5.6, 5.8, '5.10', 5.12 ],
     },
     devhelp => {
         location => 'http://ppd.develop-help.com/ppd',
@@ -84,6 +84,11 @@ our %Repositories = (
         Notes    => 'Trouchelle: 5.10',
         PerlV    => [ '5.10' ],
     },
+    trouchelle512 => {
+        location => 'http://trouchelle.com/ppm12/',
+        Notes    => 'Trouchelle: 5.12',
+        PerlV    => [ 5.12 ],
+    },
     'uwinnipeg56-ppm3' => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
@@ -109,6 +114,11 @@ our %Repositories = (
         Notes    => 'University of Winnipeg: 5.10',
         PerlV    => [ '5.10' ],
     },
+    uwinnipeg512 => {
+        location => 'http://cpan.uwinnipeg.ca/PPMPackages/12xx/',
+        Notes    => 'University of Winnipeg: 5.12',
+        PerlV    => [ 5.12 ],
+    },
     voltar => {
         location => 'http://voltar.org/active/5.8/',
         Notes    => 'Paul Miller\'s Games::RolePlay::MapGen and Gtk2 repository',
@@ -116,7 +126,7 @@ our %Repositories = (
     wxperl => {
         location => 'http://www.wxperl.co.uk/repository',
         Notes    => 'wxPerl modules',
-        PerlV    => [ 5.8, '5.10', '5.12' ],
+        PerlV    => [ 5.8, '5.10', 5.12 ],
     },
 );
 
@@ -168,6 +178,7 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
 	    'MSWin32-x86-multi-thread-5.10' => undef,
+	    'MSWin32-x86-multi-thread-5.12' => undef,
 	},
     },
     devhelp => {
@@ -226,6 +237,8 @@ my %REPO = (
 		'http://trouchelle.com/ppm/',
 	    'MSWin32-x86-multi-thread-5.10' =>
 		'http://trouchelle.com/ppm10/',
+	    'MSWin32-x86-multi-thread-5.12' =>
+		'http://trouchelle.com/ppm12/',
 	},
     },
     uwinnipeg => {
@@ -238,6 +251,8 @@ my %REPO = (
 		'http://theoryx5.uwinnipeg.ca/ppms/',
 	    'MSWin32-x86-multi-thread-5.10' =>
 		'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
+	    'MSWin32-x86-multi-thread-5.12' =>
+		'http://cpan.uwinnipeg.ca/PPMPackages/12xx/',
 	},
     },
     voltar => {
