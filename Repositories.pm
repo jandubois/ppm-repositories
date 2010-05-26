@@ -35,10 +35,6 @@ our %Repositories = (
         Notes    => 'Bribes de Perl',
         PerlV    => [ 5.6, 5.8, '5.10', 5.12 ],
     },
-    devhelp => {
-        location => 'http://ppd.develop-help.com/ppd',
-        Notes    => 'Imager module',
-    },
     gtk2 => {
         location => 'http://www.lostmind.de/gtk2-perl/ppm/',
         Notes    => 'gtk2-perl bindings (check also \'voltar\' repository)',
