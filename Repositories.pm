@@ -47,33 +47,15 @@ our %Repositories = (
         location => 'http://gtk2-perl.sourceforge.net/win32/ppm/',
         Notes    => 'Old "official" Gtk2 repository',
     },
-    jenda => {
-        location => 'http://jenda.krynicky.cz/perl',
-        Type     => 'Webpage or PPMServer?',
-        Active   => 0,
-        Notes    => 'Jenda\'s modules',
-        PerlV    => [ 5.6, 5.8 ],
-    },
     log4perl => {
         location => 'http://log4perl.sourceforge.net/ppm',
         Notes    => 'log4perl (pure perl)',
         PerlV    => [ ],
         PerlO    => ['perl'],
     },
-    openi => {
-	# stale; last update in Feb 2004
-        location => 'http://openinteract.sourceforge.net/ppmpackages/',
-        Notes    => 'Template Toolkit',
-        PerlV    => [ 5.6, 5.8 ],
-    },
     roth => {
         location => 'http://www.roth.net/perl/packages/',
         Notes    => 'Dave Roth\'s modules',
-        PerlV    => [ 5.6, 5.8],
-    },
-    sablot => {
-        location => 'http://ppm.gingerall.cz',
-        Notes    => 'Get your XML::Sablotron here',
         PerlV    => [ 5.6, 5.8 ],
     },
     'tcool-ppm3' => {
@@ -191,14 +173,6 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread-5.12' => undef,
 	},
     },
-    devhelp => {
-	home => 'http://ppd.develop-help.com',
-	desc => 'Imager module',
-	packlist => 'http://ppd.develop-help.com/ppd',
-	arch => {
-	    'MSWin32-x86-multi-thread-5.8' => undef,
-	},
-    },
     gtk2 => {
 	home => 'http://www.lostmind.de/gtk2-perl',
 	desc => 'gtk2-perl bindings (check also \'voltar\' repository)',
@@ -218,14 +192,6 @@ my %REPO = (
     roth => {
 	home => 'http://www.roth.net/perl/packages/',
 	desc => 'Dave Roth\'s modules',
-	arch => {
-	    'MSWin32-x86-multi-thread' => undef,
-	    'MSWin32-x86-multi-thread-5.8' => undef,
-	},
-    },
-    sablotron => {
-	home => 'http://ppm.gingerall.cz',
-	desc => 'XML::Sablotron',
 	arch => {
 	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
