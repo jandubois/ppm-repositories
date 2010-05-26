@@ -20,6 +20,16 @@ my %Default = (
 );
 
 our %Repositories = (
+    bioperl => {
+        location => 'http://bioperl.org/DIST/',
+        Notes    => 'BioPerl - Regular Releases',
+        PerlV    => [ 5.8, '5.10' ],
+    },
+    'bioperl-rc' => {
+        location => 'http://bioperl.org/DIST/RC/',
+        Notes    => 'BioPerl - Releases Candidates',
+        PerlV    => [ 5.8, '5.10' ],
+    },
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
         Notes    => 'Bribes de Perl',
