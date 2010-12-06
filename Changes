@@ -1,5 +1,8 @@
 Revision history for Perl extension PPM::Repositories
 
+0.18 Mon Dec 06 2010
+    - add sisyphusion repository
+
 0.17 Tue May 25 2010
     - add 5.12 repos for bribes, trouchelle and uwinnipeg [RT#57814]
     - add bioperl and bioperl-rc to the old-style interface too

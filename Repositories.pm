@@ -54,6 +54,11 @@ our %Repositories = (
         Notes    => 'Dave Roth\'s modules',
         PerlV    => [ 5.6, 5.8 ],
     },
+    sisyphusion => {
+        location => 'http://www.sisyphusion.tk/ppm/',
+        Notes    => 'Math, PDL, Gtk2 and other ad hoc',
+        PerlV    => [ 5.6, 5.8, '5.10', 5.12 ],
+    },
     'tcool-ppm3' => {
         location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
         Type     => 'PPMServer',
@@ -191,6 +196,18 @@ my %REPO = (
 	arch => {
 	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
+	},
+    },
+    sisyphusion => {
+	home => 'http://www.sisyphusion.tk/ppm/ppmindex.html',
+	desc => 'Math, PDL, Gtk2 and other ad hoc',
+	packlist => 'http://www.sisyphusion.tk/ppm',
+	arch => {
+	    'MSWin32-x86-multi-thread' => undef,
+	    'MSWin32-x86-multi-thread-5.8' => undef,
+	    'MSWin32-x86-multi-thread-5.10' => undef,
+	    'MSWin32-x86-multi-thread-5.12' => undef,
+	    'MSWin32-x64-multi-thread-5.12' => undef,
 	},
     },
     tcool => {
