@@ -10,7 +10,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(get list used_archs);
-our $VERSION = '0.17';
+our $VERSION = '0.18';
 
 my %Default = (
     Type   => 'Webpage',
