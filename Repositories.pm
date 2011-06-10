@@ -10,7 +10,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%Repositories);
 our @EXPORT_OK = qw(get list used_archs);
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
 my %Default = (
     Type   => 'Webpage',
@@ -57,7 +57,7 @@ our %Repositories = (
     sisyphusion => {
         location => 'http://www.sisyphusion.tk/ppm/',
         Notes    => 'Math, PDL, Gtk2 and other ad hoc',
-        PerlV    => [ 5.6, 5.8, '5.10', 5.12 ],
+        PerlV    => [ 5.6, 5.8, '5.10', 5.12, 5.14 ],
     },
     'tcool-ppm3' => {
         location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
@@ -206,8 +206,11 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread' => undef,
 	    'MSWin32-x86-multi-thread-5.8' => undef,
 	    'MSWin32-x86-multi-thread-5.10' => undef,
+	    'MSWin32-x64-multi-thread-5.10' => undef,
 	    'MSWin32-x86-multi-thread-5.12' => undef,
 	    'MSWin32-x64-multi-thread-5.12' => undef,
+	    'MSWin32-x86-multi-thread-5.14' => undef,
+	    'MSWin32-x64-multi-thread-5.14' => undef,
 	},
     },
     tcool => {
