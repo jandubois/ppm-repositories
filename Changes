@@ -2,6 +2,7 @@ Revision history for Perl extension PPM::Repositories
 
 0.19 Thu Jun 09 2011
     - add 5.14 repos for sisyphusion
+    - add 5.14 repos for wxperl
 
 0.18 Mon Dec 06 2010
     - add sisyphusion repository

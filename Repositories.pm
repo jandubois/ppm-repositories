@@ -119,7 +119,7 @@ our %Repositories = (
     wxperl => {
         location => 'http://www.wxperl.co.uk/repository',
         Notes    => 'wxPerl modules',
-        PerlV    => [ 5.8, '5.10', 5.12 ],
+        PerlV    => [ 5.8, '5.10', 5.12, 5.14 ],
     },
 );
 
@@ -263,13 +263,17 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread-5.8'    => undef,
 	    'MSWin32-x86-multi-thread-5.10'   => undef,
 	    'MSWin32-x86-multi-thread-5.12'   => undef,
+	    'MSWin32-x86-multi-thread-5.14'   => undef,
 	    'MSWin32-x64-multi-thread-5.10'   => undef,
 	    'MSWin32-x64-multi-thread-5.12'   => undef,
+	    'MSWin32-x64-multi-thread-5.14'   => undef,
 	    'i686-linux-thread-multi-5.8'     => undef,
 	    'i686-linux-thread-multi-5.10'    => undef,
 	    'i686-linux-thread-multi-5.12'    => undef,
+	    'i686-linux-thread-multi-5.14'    => undef,
 	    'x86_64-linux-thread-multi-5.10'  => undef,
 	    'x86_64-linux-thread-multi-5.12'  => undef,
+	    'x86_64-linux-thread-multi-5.14'  => undef,
 	    'darwin-thread-multi-2level-5.8'  => undef,
 	    'darwin-thread-multi-2level-5.10' => undef,
 	    'darwin-thread-multi-2level-5.12' => undef,
