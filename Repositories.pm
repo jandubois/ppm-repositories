@@ -33,7 +33,7 @@ our %Repositories = (
     bribes => {
         location => 'http://www.bribes.org/perl/ppm/',
         Notes    => 'Bribes de Perl',
-        PerlV    => [ 5.6, 5.8, '5.10', 5.12 ],
+        PerlV    => [ 5.6, 5.8, '5.10', 5.12, 5.14, 5.16, 5.18 ],
     },
     gtk2 => {
         location => 'http://www.lostmind.de/gtk2-perl/ppm/',
@@ -57,7 +57,7 @@ our %Repositories = (
     sisyphusion => {
         location => 'http://www.sisyphusion.tk/ppm/',
         Notes    => 'Math, PDL, Gtk2 and other ad hoc',
-        PerlV    => [ 5.6, 5.8, '5.10', 5.12, 5.14 ],
+        PerlV    => [ 5.6, 5.8, '5.10', 5.12, 5.14, 5.16, 5.18 ],
     },
     'tcool-ppm3' => {
         location => 'http://ppm.tcool.org/server/ppmserver.cgi?urn:PPMServer',
@@ -82,6 +82,11 @@ our %Repositories = (
         Notes    => 'Trouchelle: 5.12',
         PerlV    => [ 5.12 ],
     },
+	trouchelle514 => {
+        location => 'http://trouchelle.com/ppm14/',
+        Notes    => 'Trouchelle: 5.14',
+        PerlV    => [ 5.14 ],
+    },
     'uwinnipeg56-ppm3' => {
         location => 'http://theoryx5.uwinnipeg.ca/cgi-bin/ppmserver?urn:/PPMServer',
         Type     => 'PPMServer',
@@ -101,16 +106,19 @@ our %Repositories = (
     uwinnipeg58 => {
         location => 'http://theoryx5.uwinnipeg.ca/ppms',
         Notes    => 'University of Winnipeg: 5.8 (PPM4)',
+		Active   => 0,
     },
     uwinnipeg510 => {
         location => 'http://cpan.uwinnipeg.ca/PPMPackages/10xx/',
         Notes    => 'University of Winnipeg: 5.10',
         PerlV    => [ '5.10' ],
+		Active   => 0,
     },
     uwinnipeg512 => {
         location => 'http://cpan.uwinnipeg.ca/PPMPackages/12xx/',
         Notes    => 'University of Winnipeg: 5.12',
         PerlV    => [ 5.12 ],
+		Active   => 0,
     },
     voltar => {
         location => 'http://voltar.org/active/5.8/',
@@ -119,7 +127,7 @@ our %Repositories = (
     wxperl => {
         location => 'http://www.wxperl.co.uk/repository',
         Notes    => 'wxPerl modules',
-        PerlV    => [ 5.8, '5.10', 5.12, 5.14 ],
+        PerlV    => [ 5.8, '5.10', 5.12, 5.14, 5.16 ],
     },
 );
 
@@ -231,6 +239,8 @@ my %REPO = (
 		'http://trouchelle.com/ppm10/',
 	    'MSWin32-x86-multi-thread-5.12' =>
 		'http://trouchelle.com/ppm12/',
+		'MSWin32-x86-multi-thread-5.14' =>
+		'http://trouchelle.com/ppm14/',
 	},
     },
     uwinnipeg => {
@@ -267,16 +277,20 @@ my %REPO = (
 	    'MSWin32-x64-multi-thread-5.10'   => undef,
 	    'MSWin32-x64-multi-thread-5.12'   => undef,
 	    'MSWin32-x64-multi-thread-5.14'   => undef,
+		'MSWin32-x64-multi-thread-5.16'   => undef,
 	    'i686-linux-thread-multi-5.8'     => undef,
 	    'i686-linux-thread-multi-5.10'    => undef,
 	    'i686-linux-thread-multi-5.12'    => undef,
 	    'i686-linux-thread-multi-5.14'    => undef,
+		'i686-linux-thread-multi-5.16'    => undef,
 	    'x86_64-linux-thread-multi-5.10'  => undef,
 	    'x86_64-linux-thread-multi-5.12'  => undef,
 	    'x86_64-linux-thread-multi-5.14'  => undef,
+		'x86_64-linux-thread-multi-5.16'  => undef,
 	    'darwin-thread-multi-2level-5.8'  => undef,
-	    'darwin-thread-multi-2level-5.10' => undef,
 	    'darwin-thread-multi-2level-5.12' => undef,
+		'darwin-thread-multi-2level-5.14' => undef,
+		'darwin-thread-multi-2level-5.16' => undef,
 	},
     },
 );
