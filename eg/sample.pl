@@ -3,8 +3,9 @@ use warnings;
 use Config qw(%Config);
 use PPM::Repositories qw(get list used_archs);
 
-for my $version (qw(5.6 5.8 5.10 5.12)) {
-    my $arch = "$Config{archname}";
+my $archname = shift || $Config{archname};
+for my $version (qw(5.6 5.8 5.10 5.12 5.14 5.16 5.18 5.20)) {
+    my $arch = $archname;
     $arch .= "-$version" unless $version eq "5.6";
     print "Perl $arch\n";
     for my $name (list($arch)) {
