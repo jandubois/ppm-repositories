@@ -82,7 +82,7 @@ our %Repositories = (
         Notes    => 'Trouchelle: 5.12',
         PerlV    => [ 5.12 ],
     },
-	trouchelle514 => {
+    trouchelle514 => {
         location => 'http://trouchelle.com/ppm14/',
         Notes    => 'Trouchelle: 5.14',
         PerlV    => [ 5.14 ],
@@ -239,7 +239,7 @@ my %REPO = (
 		'http://trouchelle.com/ppm10/',
 	    'MSWin32-x86-multi-thread-5.12' =>
 		'http://trouchelle.com/ppm12/',
-		'MSWin32-x86-multi-thread-5.14' =>
+	    'MSWin32-x86-multi-thread-5.14' =>
 		'http://trouchelle.com/ppm14/',
 	},
     },
@@ -276,21 +276,21 @@ my %REPO = (
 	    'MSWin32-x86-multi-thread-5.14'   => undef,
 	    'MSWin32-x64-multi-thread-5.10'   => undef,
 	    'MSWin32-x64-multi-thread-5.12'   => undef,
-	    'MSWin32-x64-multi-thread-5.14'   => undef,
-		'MSWin32-x64-multi-thread-5.16'   => undef,
+            'MSWin32-x64-multi-thread-5.14'   => undef,
+            'MSWin32-x64-multi-thread-5.16'   => undef,
 	    'i686-linux-thread-multi-5.8'     => undef,
 	    'i686-linux-thread-multi-5.10'    => undef,
 	    'i686-linux-thread-multi-5.12'    => undef,
 	    'i686-linux-thread-multi-5.14'    => undef,
-		'i686-linux-thread-multi-5.16'    => undef,
+            'i686-linux-thread-multi-5.16'    => undef,
 	    'x86_64-linux-thread-multi-5.10'  => undef,
 	    'x86_64-linux-thread-multi-5.12'  => undef,
 	    'x86_64-linux-thread-multi-5.14'  => undef,
-		'x86_64-linux-thread-multi-5.16'  => undef,
+            'x86_64-linux-thread-multi-5.16'  => undef,
 	    'darwin-thread-multi-2level-5.8'  => undef,
 	    'darwin-thread-multi-2level-5.12' => undef,
-		'darwin-thread-multi-2level-5.14' => undef,
-		'darwin-thread-multi-2level-5.16' => undef,
+	    'darwin-thread-multi-2level-5.14' => undef,
+	    'darwin-thread-multi-2level-5.16' => undef,
 	},
     },
 );
