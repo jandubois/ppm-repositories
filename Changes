@@ -1,5 +1,13 @@
 Revision history for Perl extension PPM::Repositories
 
+0.20 Wed Oct 22 2014
+     - add activestate repos for 5.14 to 5.20
+     - remove activestate HP-UX repos; they seem to be gone
+     - add bribes repos for 5.14 to 5.18
+     - add sisyphusion repos for 5.16 and 5.18
+     - add trouchelle for 5.14
+     - add wxperl for 5.16
+
 0.19 Thu Jun 09 2011
     - add 5.14 repos for sisyphusion
     - add 5.14 repos for wxperl
