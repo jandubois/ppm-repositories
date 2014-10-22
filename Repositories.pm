@@ -303,37 +303,39 @@ my %REPO = (
 );
 
 # Add URLs for all ActiveState repos
-for my $arch (qw(
-		 IA64.ARCHREV_0
-		 IA64.ARCHREV_0-LP64
-		 MSWin32-x64
-		 MSWin32-x86
-		 PA-RISC1.1
-		 PA-RISC2.0-LP64
-		 darwin
-		 i686-linux
-		 x86_64-linux
-		 sun4-solaris
-	        ))
+for my $readonly_arch (qw(
+                             MSWin32-x64
+                             MSWin32-x86
+                             darwin
+                             i686-linux
+                             x86_64-linux
+                             sun4-solaris
+                             sun4-solaris-64
+                        ))
 {
+    my $arch = $readonly_arch;
     my $fullarch = "$arch-thread-multi";
     $fullarch = "$arch-thread-multi-2level" if $arch =~ /^darwin/;
     $fullarch = "$arch-multi-thread"        if $arch =~ /^MSWin/;
 
-    unless ($arch eq "MSWin32-x64" || $arch eq "x86_64-linux") {
+    for my $version (8, 10, 12, 14, 16, 18, 20) {
 	# There are no 64-bit 5.8 repositories
-	$REPO{activestate}{arch}{"$fullarch-5.8"} =
-	    "http://ppm4.activestate.com/$arch/5.8/800/";
+        next if $version == 8 && $arch =~ /64/;
+
+        # There are no PPM repos for 5.16 or later for Solaris
+        last if $version == 16 && $arch =~ /^sun4-solaris/;
+
+        # Starting with ActivePerl 5.18 all 32-bit builds use 64-bit ints
+        if ($version == 18 && $arch =~ /^(MSWin32-x86|i686-linux)$/) {
+            $_ .= "-64int" for $arch, $fullarch;
+        }
+
+        # There are no 32-bit PPM repos for 5.20 or later for Linux
+        last if $version == 20 && $arch eq "i686-linux-64int";
+
+        $REPO{activestate}{arch}{"$fullarch-5.$version"} =
+          "http://ppm4.activestate.com/$arch/5.$version/${version}00/";
     }
-
-    # There are no HP-UX 5.10 repositories (yet).
-    next if $arch =~ /^(PA-RISC|IA64)/;
-
-    $REPO{activestate}{arch}{"$fullarch-5.10"} =
-	"http://ppm4.activestate.com/$arch/5.10/1000/";
-
-    $REPO{activestate}{arch}{"$fullarch-5.12"} =
-	"http://ppm4.activestate.com/$arch/5.12/1200/";
 }
 
 sub _default_arch {
